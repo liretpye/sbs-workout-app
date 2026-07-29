@@ -7,7 +7,8 @@ create table if not exists settings (
   units text not null default 'lbs',
   weeks int not null default 21,
   days_per_week int not null default 3,
-  current_week int not null default 1
+  current_week int not null default 1,
+  cycle int not null default 1
 );
 
 create table if not exists lifts (
@@ -35,6 +36,7 @@ create table if not exists program_days (
 
 create table if not exists logs (
   id serial primary key,
+  cycle int not null default 1,
   variant int not null,
   week int not null,
   day int not null,
@@ -45,11 +47,12 @@ create table if not exists logs (
   video text,
   notes text,
   updated_at timestamptz default now(),
-  unique(variant, week, day, lift_id)
+  unique(cycle, variant, week, day, lift_id)
 );
 
 create table if not exists accessories (
   id serial primary key,
+  cycle int not null default 1,
   variant int not null,
   week int not null,
   day int not null,
@@ -64,7 +67,13 @@ create table if not exists accessories (
   video text,
   notes text,
   updated_at timestamptz default now(),
-  unique(variant, week, day, slot)
+  unique(cycle, variant, week, day, slot)
+);
+
+create table if not exists cycles (
+  cycle int primary key,
+  maxes jsonb not null,
+  ended_at timestamptz default now()
 );
 
 -- Single-user app: permissive access for the anon key.
@@ -75,15 +84,18 @@ alter table lifts enable row level security;
 alter table program_days enable row level security;
 alter table logs enable row level security;
 alter table accessories enable row level security;
+alter table cycles enable row level security;
 
 drop policy if exists anon_all on settings;
 drop policy if exists anon_all on lifts;
 drop policy if exists anon_all on program_days;
 drop policy if exists anon_all on logs;
 drop policy if exists anon_all on accessories;
+drop policy if exists anon_all on cycles;
 
 create policy anon_all on settings for all using (true) with check (true);
 create policy anon_all on lifts for all using (true) with check (true);
 create policy anon_all on program_days for all using (true) with check (true);
 create policy anon_all on logs for all using (true) with check (true);
 create policy anon_all on accessories for all using (true) with check (true);
+create policy anon_all on cycles for all using (true) with check (true);
