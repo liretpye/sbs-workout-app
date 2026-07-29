@@ -62,3 +62,26 @@ function numMap(obj) {
 function nn(v) {
   return v === null || v === undefined || v === '' ? null : Number(v);
 }
+
+// Derive the current program week from workout timestamps.
+// Rule: take the most recently saved log's week; if that week's full session
+// list is logged, or the last save was over 7 days ago, you're on the next week.
+// settings.current_week acts as a floor (covers the initial spreadsheet import).
+export function detectCurrentWeek({ logs, variant, programDays, settings, now = Date.now() }) {
+  const vlogs = logs.filter(
+    (l) => l.variant === variant && l.sets_completed !== null && l.sets_completed !== undefined && l.updated_at
+  );
+  const floor = settings.current_week || 1;
+  if (!vlogs.length) return Math.min(floor, settings.weeks);
+  const last = vlogs.reduce((a, b) => (new Date(a.updated_at) > new Date(b.updated_at) ? a : b));
+  let wk = last.week;
+  const ageDays = (now - new Date(last.updated_at).getTime()) / 86400000;
+  const pds = programDays.filter((p) => p.variant === variant);
+  const complete =
+    pds.length > 0 &&
+    pds.every((pd) =>
+      vlogs.some((l) => l.week === wk && l.day === pd.day && l.lift_id === pd.lift_id)
+    );
+  if (ageDays > 7 || complete) wk += 1;
+  return Math.min(Math.max(wk, floor), settings.weeks);
+}
