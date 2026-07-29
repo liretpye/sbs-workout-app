@@ -1,9 +1,28 @@
 import React, { useEffect, useState, useCallback } from 'react';
+import logo from './assets/logo.png';
 import Connect from './pages/Connect.jsx';
 import Workout from './pages/Workout.jsx';
 import Setup from './pages/Setup.jsx';
 import { getStoredConfig } from './lib/supabase.js';
 import { loadAll } from './lib/store.js';
+
+function Clock() {
+  const [now, setNow] = useState(new Date());
+  useEffect(() => {
+    const t = setInterval(() => setNow(new Date()), 30000);
+    return () => clearInterval(t);
+  }, []);
+  return (
+    <div className="clock">
+      <span className="clock-date">
+        {now.toLocaleDateString(undefined, { weekday: 'short', month: 'short', day: 'numeric' })}
+      </span>
+      <span className="clock-time">
+        {now.toLocaleTimeString(undefined, { hour: 'numeric', minute: '2-digit' })}
+      </span>
+    </div>
+  );
+}
 
 export default function App() {
   const [phase, setPhase] = useState(getStoredConfig() ? 'loading' : 'connect');
@@ -57,16 +76,19 @@ export default function App() {
   return (
     <div className="app">
       <header className="topbar">
-        <h1>SBS Linear Progression</h1>
-        <nav>
-          <button className={tab === 'workout' ? 'active' : ''} onClick={() => setTab('workout')}>
-            Workout
-          </button>
-          <button className={tab === 'setup' ? 'active' : ''} onClick={() => setTab('setup')}>
-            Setup
-          </button>
-        </nav>
+        <img className="logo" src={logo} alt="SBS Linear Progression" />
+        <Clock />
       </header>
+      <nav className="main-nav">
+        <button className={tab === 'workout' ? 'active' : ''} onClick={() => setTab('workout')}>
+          <span className="nav-icon">🏋️</span>
+          Workout
+        </button>
+        <button className={tab === 'setup' ? 'active' : ''} onClick={() => setTab('setup')}>
+          <span className="nav-icon">⚙️</span>
+          Setup
+        </button>
+      </nav>
       {tab === 'workout' ? (
         <Workout data={data} setData={setData} />
       ) : (
