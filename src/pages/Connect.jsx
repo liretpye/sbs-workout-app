@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { getStoredConfig, storeConfig, testConnection, resetClient } from '../lib/supabase.js';
+import logo from '../assets/logo.png';
 
 export default function Connect({ onConnected }) {
   const existing = getStoredConfig();
@@ -27,7 +28,7 @@ export default function Connect({ onConnected }) {
   return (
     <div className="center-screen">
       <form className="card connect-card" onSubmit={connect}>
-        <h1>SBS Linear Progression</h1>
+        <img className="logo" src={logo} alt="SBS Linear Progression" style={{ alignSelf: 'center' }} />
         <p className="muted">
           Connect your Supabase project. In the Supabase dashboard go to{' '}
           <strong>Project Settings → API</strong> and copy the Project URL and the{' '}
