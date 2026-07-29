@@ -2,6 +2,7 @@ import React, { useEffect, useState, useCallback } from 'react';
 import logo from './assets/logo.png';
 import Connect from './pages/Connect.jsx';
 import Workout from './pages/Workout.jsx';
+import Progress from './pages/Progress.jsx';
 import Setup from './pages/Setup.jsx';
 import { getStoredConfig } from './lib/supabase.js';
 import { loadAll } from './lib/store.js';
@@ -84,6 +85,10 @@ export default function App() {
           <span className="nav-icon">🏋️</span>
           Workout
         </button>
+        <button className={tab === 'progress' ? 'active' : ''} onClick={() => setTab('progress')}>
+          <span className="nav-icon">📈</span>
+          Progress
+        </button>
         <button className={tab === 'setup' ? 'active' : ''} onClick={() => setTab('setup')}>
           <span className="nav-icon">⚙️</span>
           Setup
@@ -91,6 +96,8 @@ export default function App() {
       </nav>
       {tab === 'workout' ? (
         <Workout data={data} setData={setData} />
+      ) : tab === 'progress' ? (
+        <Progress data={data} />
       ) : (
         <Setup data={data} setData={setData} onReconnect={() => setPhase('connect')} onReload={refresh} />
       )}
