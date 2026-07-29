@@ -2,12 +2,17 @@ import { createClient } from '@supabase/supabase-js';
 
 const LS_KEY = 'sbs.supabase.config';
 
+const DEFAULT_CONFIG = {
+  url: 'https://nyztolzbtfsphbhyjpnv.supabase.co',
+  anonKey: 'sb_publishable_cYDS2NUdm9fx1jEjD0jXxA_oc8iIH3z',
+};
+
 export function getStoredConfig() {
   try {
     const raw = localStorage.getItem(LS_KEY);
     if (raw) return JSON.parse(raw);
   } catch { /* ignore */ }
-  return null;
+  return DEFAULT_CONFIG;
 }
 
 export function storeConfig(url, anonKey) {
