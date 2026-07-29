@@ -324,7 +324,7 @@ function summarize(sets, rir, entry) {
 
 function PlateMath({ weight, units }) {
   const bar = units === 'kg' ? 20 : 45;
-  const sizes = units === 'kg' ? [25, 20, 15, 10, 5, 2.5, 1.25] : [45, 35, 25, 10, 5, 2.5];
+  const sizes = units === 'kg' ? [25, 20, 15, 10, 5, 2.5, 1.25] : [45, 25, 15, 10, 5, 2.5, 1.25];
   if (weight < bar) {
     return <div className="plate-math">below bar weight ({bar} {units} bar)</div>;
   }
