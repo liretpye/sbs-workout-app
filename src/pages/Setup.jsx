@@ -1,6 +1,7 @@
 import React, { useMemo, useState } from 'react';
-import { saveSettings, saveLift } from '../lib/store.js';
+import { saveSettings, saveLift, resetProgram, wipePastCycles } from '../lib/store.js';
 import { clearConfig } from '../lib/supabase.js';
+import { planForLift, detectCurrentWeek } from '../lib/program.js';
 
 export default function Setup({ data, setData, onReconnect, onReload }) {
   const { settings, lifts, programDays } = data;
@@ -12,6 +13,8 @@ export default function Setup({ data, setData, onReconnect, onReload }) {
       <ProgressionTable lifts={lifts} setData={setData} />
       <TargetTables lifts={lifts} setData={setData} />
       <DayLayout programDays={programDays} lifts={lifts} variant={settings.days_per_week} />
+      <ResetCard data={data} setData={setData} />
+      <WipeCard data={data} setData={setData} />
       <div className="card">
         <h3>Connection</h3>
         <p className="muted">Supabase credentials are stored in this browser only.</p>
@@ -362,6 +365,178 @@ function TargetTables({ lifts, setData }) {
           {saving ? 'Saving…' : saved ? 'Saved ✓' : 'Save targets'}
         </button>
       </div>
+    </div>
+  );
+}
+
+function ResetCard({ data, setData }) {
+  const { settings, lifts, programDays, logs, accessories } = data;
+  const variant = settings.days_per_week;
+  const [arm, setArm] = useState(false);
+  const [busy, setBusy] = useState(false);
+
+  const currentWeek = useMemo(
+    () => detectCurrentWeek({ logs, variant, programDays, settings }),
+    [logs, variant, programDays, settings]
+  );
+  const newMaxes = useMemo(
+    () =>
+      lifts.map((l) => {
+        const plan = planForLift(l, logs, variant, settings);
+        const tm = plan[currentWeek - 1].tm;
+        return { id: l.id, name: l.name, oldMax: Number(l.max), max: Math.round(tm * 100) / 100 };
+      }),
+    [lifts, logs, variant, settings, currentWeek]
+  );
+
+  function downloadBackup() {
+    const backup = {
+      exported_at: new Date().toISOString(),
+      settings, lifts, logs, accessories,
+    };
+    const blob = new Blob([JSON.stringify(backup, null, 1)], { type: 'application/json' });
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = `sbs-backup-${new Date().toISOString().slice(0, 10)}.json`;
+    a.click();
+    URL.revokeObjectURL(a.href);
+  }
+
+  async function doReset() {
+    setBusy(true);
+    try {
+      const endingCycle = settings.cycle ?? 1;
+      const snapshotMaxes = Object.fromEntries(lifts.map((l) => [l.id, Number(l.max)]));
+      const s = await resetProgram({
+        endingCycle,
+        snapshotMaxes,
+        newMaxes: newMaxes.map(({ id, max }) => ({ id, max })),
+      });
+      setData((d) => ({
+        ...d,
+        settings: s,
+        lifts: d.lifts.map((l) => {
+          const nm = newMaxes.find((x) => x.id === l.id);
+          return nm ? { ...l, max: nm.max } : l;
+        }),
+        cycles: [
+          ...(d.cycles || []).filter((c) => c.cycle !== endingCycle),
+          { cycle: endingCycle, maxes: snapshotMaxes, ended_at: new Date().toISOString() },
+        ],
+      }));
+      setArm(false);
+    } catch (e) {
+      alert(`Reset failed: ${e.message}`);
+    } finally {
+      setBusy(false);
+    }
+  }
+
+  return (
+    <div className="card reset-card">
+      <h3>Restart program</h3>
+      <p className="muted">
+        Start cycle {(settings.cycle ?? 1) + 1} at week 1, carrying your current training
+        maxes over as the new starting maxes. Nothing is deleted — this cycle's history is
+        archived and stays browsable in Progress.
+      </p>
+      {!arm ? (
+        <button className="secondary" onClick={() => setArm(true)}>Restart at week 1…</button>
+      ) : (
+        <>
+          <div className="table-scroll">
+            <table>
+              <thead>
+                <tr><th>Lift</th><th>Old max</th><th>New max ({settings.units})</th></tr>
+              </thead>
+              <tbody>
+                {newMaxes.map((m) => (
+                  <tr key={m.id}>
+                    <td>{m.name}</td>
+                    <td className="muted">{m.oldMax}</td>
+                    <td><strong>{m.max}</strong></td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <p className="muted" style={{ marginTop: 10 }}>
+            Cycle {settings.cycle ?? 1} (through week {currentWeek}) will be archived.
+          </p>
+          <div className="row">
+            <button onClick={doReset} disabled={busy}>
+              {busy ? 'Restarting…' : `Start cycle ${(settings.cycle ?? 1) + 1}`}
+            </button>
+            <button className="secondary" onClick={() => setArm(false)} disabled={busy}>Cancel</button>
+          </div>
+        </>
+      )}
+    </div>
+  );
+}
+
+function WipeCard({ data, setData }) {
+  const { settings, logs, accessories, cycles = [], lifts } = data;
+  const currentCycle = settings.cycle ?? 1;
+  const pastCount = cycles.filter((c) => c.cycle < currentCycle).length;
+  const pastLogs = logs.filter((l) => (l.cycle ?? 1) < currentCycle).length;
+  const [arm, setArm] = useState(false);
+  const [busy, setBusy] = useState(false);
+
+  if (!pastCount && !pastLogs) return null;
+
+  function downloadBackup() {
+    const backup = { exported_at: new Date().toISOString(), settings, lifts, cycles, logs, accessories };
+    const blob = new Blob([JSON.stringify(backup, null, 1)], { type: 'application/json' });
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = `sbs-backup-${new Date().toISOString().slice(0, 10)}.json`;
+    a.click();
+    URL.revokeObjectURL(a.href);
+  }
+
+  async function doWipe() {
+    setBusy(true);
+    try {
+      downloadBackup();
+      await wipePastCycles(currentCycle);
+      setData((d) => ({
+        ...d,
+        logs: d.logs.filter((l) => (l.cycle ?? 1) >= currentCycle),
+        accessories: d.accessories.filter((a) => (a.cycle ?? 1) >= currentCycle),
+        cycles: (d.cycles || []).filter((c) => c.cycle >= currentCycle),
+      }));
+      setArm(false);
+    } catch (e) {
+      alert(`Wipe failed: ${e.message}`);
+    } finally {
+      setBusy(false);
+    }
+  }
+
+  return (
+    <div className="card">
+      <h3>Past-cycle history</h3>
+      <p className="muted">
+        {pastCount} archived cycle{pastCount === 1 ? '' : 's'} · {pastLogs} logged workout
+        rows. Deleting them frees the Progress cycle list; the active cycle is untouched.
+      </p>
+      {!arm ? (
+        <button className="secondary" onClick={() => setArm(true)}>Delete past cycles…</button>
+      ) : (
+        <>
+          <p className="error">
+            This permanently deletes all history from cycles before cycle {currentCycle}. A
+            backup file downloads first.
+          </p>
+          <div className="row">
+            <button className="danger" onClick={doWipe} disabled={busy}>
+              {busy ? 'Deleting…' : 'Yes — delete past cycles'}
+            </button>
+            <button className="secondary" onClick={() => setArm(false)} disabled={busy}>Cancel</button>
+          </div>
+        </>
+      )}
     </div>
   );
 }

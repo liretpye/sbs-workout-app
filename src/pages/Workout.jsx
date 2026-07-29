@@ -5,6 +5,7 @@ import { upsertLog, upsertAccessory, deleteAccessory } from '../lib/store.js';
 export default function Workout({ data, setData }) {
   const { settings, lifts, programDays, logs, accessories } = data;
   const variant = settings.days_per_week;
+  const cycle = settings.cycle ?? 1;
   const autoWeek = useMemo(
     () => detectCurrentWeek({ logs, variant, programDays, settings }),
     [logs, variant, programDays, settings]
@@ -33,13 +34,13 @@ export default function Workout({ data, setData }) {
         pds.every((pd) =>
           logs.some(
             (l) =>
-              l.variant === variant && l.week === week && l.day === d &&
+              (l.cycle ?? 1) === cycle && l.variant === variant && l.week === week && l.day === d &&
               l.lift_id === pd.lift_id && l.sets_completed !== null && l.sets_completed !== undefined
           )
         );
     }
     return done;
-  }, [days, logs, variant, week]);
+  }, [days, logs, variant, cycle, week]);
 
   // land on the first unfinished day of the week (once, on mount)
   const autoDayRef = useRef(false);
@@ -86,15 +87,15 @@ export default function Workout({ data, setData }) {
         </div>
       </div>
 
-      <DaySummary day={day} week={week} variant={variant} dayLifts={dayLifts}
+      <DaySummary day={day} week={week} variant={variant} cycle={cycle} dayLifts={dayLifts}
         logs={logs} settings={settings} />
 
       {dayLifts.map((lift) => (
-        <LiftCard key={`${variant}-${week}-${day}-${lift.id}`} lift={lift} week={week} day={day}
-          variant={variant} settings={settings} logs={logs} setData={setData} />
+        <LiftCard key={`${cycle}-${variant}-${week}-${day}-${lift.id}`} lift={lift} week={week} day={day}
+          variant={variant} cycle={cycle} settings={settings} logs={logs} setData={setData} />
       ))}
 
-      <AccessorySection variant={variant} week={week} day={day}
+      <AccessorySection variant={variant} cycle={cycle} week={week} day={day}
         accessories={accessories} setData={setData} units={settings.units} />
     </div>
   );
@@ -102,11 +103,11 @@ export default function Workout({ data, setData }) {
 
 /* ---------- day summary ---------- */
 
-function DaySummary({ day, week, variant, dayLifts, logs, settings }) {
+function DaySummary({ day, week, variant, cycle, dayLifts, logs, settings }) {
   const rows = dayLifts.map((lift) => {
     const entry = planForLift(lift, logs, variant, settings)[week - 1];
     const log = logs.find(
-      (l) => l.variant === variant && l.week === week && l.day === day && l.lift_id === lift.id
+      (l) => (l.cycle ?? 1) === cycle && l.variant === variant && l.week === week && l.day === day && l.lift_id === lift.id
     );
     const done = log && log.sets_completed !== null && log.sets_completed !== undefined;
     return { lift, entry, done };
@@ -146,7 +147,7 @@ function DaySummary({ day, week, variant, dayLifts, logs, settings }) {
 
 /* ---------- lift card ---------- */
 
-function LiftCard({ lift, week, day, variant, settings, logs, setData }) {
+function LiftCard({ lift, week, day, variant, cycle, settings, logs, setData }) {
   const plan = useMemo(() => planForLift(lift, logs, variant, settings), [lift, logs, variant, settings]);
   const entry = plan[week - 1];
   const log = entry.log;
@@ -178,7 +179,7 @@ function LiftCard({ lift, week, day, variant, settings, logs, setData }) {
     const v = latest.current;
     try {
       const row = await upsertLog({
-        variant, week, day, lift_id: lift.id,
+        cycle, variant, week, day, lift_id: lift.id,
         sets_completed: v.sets ?? null,
         rir_last_set: v.rir ?? null,
         single_at8: v.single === '' ? null : Number(v.single),
@@ -188,7 +189,7 @@ function LiftCard({ lift, week, day, variant, settings, logs, setData }) {
       setSaveState('saved');
       setData((d) => {
         const rest = d.logs.filter(
-          (l) => !(l.variant === variant && l.week === week && l.day === day && l.lift_id === lift.id)
+          (l) => !((l.cycle ?? 1) === cycle && l.variant === variant && l.week === week && l.day === day && l.lift_id === lift.id)
         );
         return { ...d, logs: [...rest, row] };
       });
@@ -343,20 +344,20 @@ function PlateMath({ weight, units }) {
 
 /* ---------- accessories ---------- */
 
-function AccessorySection({ variant, week, day, accessories, setData, units }) {
+function AccessorySection({ variant, cycle, week, day, accessories, setData, units }) {
   const rows = accessories
-    .filter((a) => a.variant === variant && a.week === week && a.day === day)
+    .filter((a) => (a.cycle ?? 1) === cycle && a.variant === variant && a.week === week && a.day === day)
     .sort((a, b) => a.slot - b.slot);
 
   const prior = useMemo(() => {
     const bySlot = {};
     for (const a of accessories) {
-      if (a.variant === variant && a.day === day && a.week < week && a.name) {
+      if ((a.cycle ?? 1) === cycle && a.variant === variant && a.day === day && a.week < week && a.name) {
         if (!bySlot[a.slot] || a.week > bySlot[a.slot].week) bySlot[a.slot] = a;
       }
     }
     return bySlot;
-  }, [accessories, variant, day, week]);
+  }, [accessories, variant, cycle, day, week]);
 
   const usedSlots = new Set(rows.map((r) => r.slot));
   const ghostSlots = Object.keys(prior).map(Number).filter((s) => !usedSlots.has(s)).sort((a, b) => a - b);
@@ -367,7 +368,7 @@ function AccessorySection({ variant, week, day, accessories, setData, units }) {
       ? { slot: fromPrior.slot, name: fromPrior.name, weight: fromPrior.weight, reps_per_set: fromPrior.reps_per_set, set_goal: fromPrior.set_goal }
       : { slot: nextSlot, name: '' };
     try {
-      const row = await upsertAccessory({ variant, week, day, ...base });
+      const row = await upsertAccessory({ cycle, variant, week, day, ...base });
       setData((d) => ({ ...d, accessories: [...d.accessories, row] }));
     } catch (e) {
       alert(`Save failed: ${e.message}`);
@@ -418,7 +419,7 @@ function AccessoryRow({ row, setData, units }) {
     const s = latest.current;
     try {
       const saved = await upsertAccessory({
-        variant: row.variant, week: row.week, day: row.day, slot: row.slot,
+        cycle: row.cycle ?? 1, variant: row.variant, week: row.week, day: row.day, slot: row.slot,
         name: s.name || null, weight: numOrNull(s.weight), reps_per_set: numOrNull(s.reps_per_set),
         set_goal: numOrNull(s.set_goal), sets_completed: numOrNull(s.sets_completed),
         rir_last_set: numOrNull(s.rir_last_set), notes: s.notes || null,
@@ -482,7 +483,7 @@ function AccessoryRow({ row, setData, units }) {
 }
 
 function samePlace(a, b) {
-  return a.variant === b.variant && a.week === b.week && a.day === b.day && a.slot === b.slot;
+  return (a.cycle ?? 1) === (b.cycle ?? 1) && a.variant === b.variant && a.week === b.week && a.day === b.day && a.slot === b.slot;
 }
 
 function numOrNull(v) {
