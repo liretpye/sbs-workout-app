@@ -1,0 +1,2788 @@
+{
+ "config": {
+  "rounding": 2.5,
+  "units": "lbs"
+ },
+ "lifts": [
+  {
+   "row": 5,
+   "name": "Squat",
+   "role": "Squat (main)",
+   "max": 165.0,
+   "single_at8_pct": 0.9
+  },
+  {
+   "row": 6,
+   "name": "Bench Press",
+   "role": "Bench (main)",
+   "max": 115.0,
+   "single_at8_pct": 0.9
+  },
+  {
+   "row": 7,
+   "name": "Deadlift",
+   "role": "Primary stance",
+   "max": 180.0,
+   "single_at8_pct": 0.9
+  },
+  {
+   "row": 8,
+   "name": "Seated OHP",
+   "role": "OHP (main)",
+   "max": 100.0,
+   "single_at8_pct": 0.9
+  },
+  {
+   "row": 11,
+   "name": "Front Squat",
+   "role": "Squat auxiliary 1",
+   "max": 120.0,
+   "single_at8_pct": 0.9
+  },
+  {
+   "row": 12,
+   "name": "Paused Squat",
+   "role": "Squat auxiliary 2",
+   "max": 100.0,
+   "single_at8_pct": 0.9
+  },
+  {
+   "row": 13,
+   "name": "Close Grip Bench",
+   "role": "Bench auxiliary 1",
+   "max": 100.0,
+   "single_at8_pct": 0.9
+  },
+  {
+   "row": 14,
+   "name": "Long Pause Bench",
+   "role": "Bench auxiliary 2",
+   "max": 85.0,
+   "single_at8_pct": 0.9
+  },
+  {
+   "row": 15,
+   "name": "Sumo Deadlift",
+   "role": "Deadlift auxiliary",
+   "max": 168.0,
+   "single_at8_pct": 0.9
+  },
+  {
+   "row": 16,
+   "name": "Incline Press",
+   "role": "OHP auxiliary",
+   "max": 70.0,
+   "single_at8_pct": 0.9
+  },
+  {
+   "row": 17,
+   "name": "Barbell rows",
+   "role": "Back Exercise 1",
+   "max": 95.0,
+   "single_at8_pct": 0.9
+  },
+  {
+   "row": 18,
+   "name": "DB rows",
+   "role": "Back Exercise 2",
+   "max": 35.0,
+   "single_at8_pct": 0.9
+  },
+  {
+   "row": 19,
+   "name": "Pull-ups",
+   "role": "Back Exercise 3",
+   "max": 160.0,
+   "single_at8_pct": 0.9
+  }
+ ],
+ "adjustments": {
+  "Squat": {
+   "sets": 3.0,
+   "minus2plus": -0.05,
+   "minus1_or_lowRIR": -0.02,
+   "at_target": 0.0,
+   "plus1": 0.01,
+   "plus2": 0.03,
+   "plus3": 0.05,
+   "plus4": 0.05,
+   "plus5": 0.05
+  },
+  "Bench Press": {
+   "sets": 3.0,
+   "minus2plus": -0.05,
+   "minus1_or_lowRIR": -0.02,
+   "at_target": 0,
+   "plus1": 0.01,
+   "plus2": 0.03,
+   "plus3": 0.05,
+   "plus4": 0.05,
+   "plus5": 0.05
+  },
+  "Deadlift": {
+   "sets": 3.0,
+   "minus2plus": -0.05,
+   "minus1_or_lowRIR": -0.02,
+   "at_target": 0,
+   "plus1": 0.01,
+   "plus2": 0.03,
+   "plus3": 0.05,
+   "plus4": 0.05,
+   "plus5": 0.05
+  },
+  "Seated OHP": {
+   "sets": 3.0,
+   "minus2plus": -0.05,
+   "minus1_or_lowRIR": -0.02,
+   "at_target": 0,
+   "plus1": 0.01,
+   "plus2": 0.03,
+   "plus3": 0.05,
+   "plus4": 0.05,
+   "plus5": 0.05
+  },
+  "Front Squat": {
+   "sets": 3.0,
+   "minus2plus": -0.05,
+   "minus1_or_lowRIR": -0.02,
+   "at_target": 0,
+   "plus1": 0.01,
+   "plus2": 0.03,
+   "plus3": 0.05,
+   "plus4": 0.05,
+   "plus5": 0.05
+  },
+  "Paused Squat": {
+   "sets": 3.0,
+   "minus2plus": -0.05,
+   "minus1_or_lowRIR": -0.02,
+   "at_target": 0,
+   "plus1": 0.01,
+   "plus2": 0.03,
+   "plus3": 0.05,
+   "plus4": 0.05,
+   "plus5": 0.05
+  },
+  "Close Grip Bench": {
+   "sets": 3.0,
+   "minus2plus": -0.05,
+   "minus1_or_lowRIR": -0.02,
+   "at_target": 0,
+   "plus1": 0.01,
+   "plus2": 0.03,
+   "plus3": 0.05,
+   "plus4": 0.05,
+   "plus5": 0.05
+  },
+  "Long Pause Bench": {
+   "sets": 3.0,
+   "minus2plus": -0.05,
+   "minus1_or_lowRIR": -0.02,
+   "at_target": 0,
+   "plus1": 0.01,
+   "plus2": 0.03,
+   "plus3": 0.05,
+   "plus4": 0.05,
+   "plus5": 0.05
+  },
+  "Sumo Deadlift": {
+   "sets": 3.0,
+   "minus2plus": -0.05,
+   "minus1_or_lowRIR": -0.02,
+   "at_target": 0,
+   "plus1": 0.01,
+   "plus2": 0.03,
+   "plus3": 0.05,
+   "plus4": 0.05,
+   "plus5": 0.05
+  },
+  "Incline Press": {
+   "sets": 3.0,
+   "minus2plus": -0.05,
+   "minus1_or_lowRIR": -0.02,
+   "at_target": 0,
+   "plus1": 0.01,
+   "plus2": 0.03,
+   "plus3": 0.05,
+   "plus4": 0.05,
+   "plus5": 0.05
+  },
+  "Barbell rows": {
+   "sets": 3.0,
+   "minus2plus": -0.05,
+   "minus1_or_lowRIR": -0.02,
+   "at_target": 0,
+   "plus1": 0.01,
+   "plus2": 0.03,
+   "plus3": 0.05,
+   "plus4": 0.05,
+   "plus5": 0.05
+  },
+  "DB rows": {
+   "sets": 3.0,
+   "minus2plus": -0.05,
+   "minus1_or_lowRIR": -0.02,
+   "at_target": 0,
+   "plus1": 0.01,
+   "plus2": 0.03,
+   "plus3": 0.05,
+   "plus4": 0.05,
+   "plus5": 0.05
+  },
+  "Pull-ups": {
+   "sets": 3.0,
+   "minus2plus": -0.05,
+   "minus1_or_lowRIR": -0.02,
+   "at_target": 0,
+   "plus1": 0.01,
+   "plus2": 0.03,
+   "plus3": 0.05,
+   "plus4": 0.05,
+   "plus5": 0.05
+  }
+ },
+ "intensities": [
+  0.5,
+  0.525,
+  0.55,
+  0.575,
+  0.6,
+  0.625,
+  0.65,
+  0.675,
+  0.7,
+  0.725,
+  0.75,
+  0.775,
+  0.8,
+  0.825,
+  0.85,
+  0.875,
+  0.9,
+  0.925,
+  0.95,
+  0.975,
+  1.0
+ ],
+ "rep_targets": {
+  "Squat": {
+   "0.5": 20.0,
+   "0.525": 18.0,
+   "0.55": 16.0,
+   "0.575": 15.0,
+   "0.6": 14.0,
+   "0.625": 13.0,
+   "0.65": 12.0,
+   "0.675": 11.0,
+   "0.7": 10.0,
+   "0.725": 9.0,
+   "0.75": 8.0,
+   "0.775": 7.0,
+   "0.8": 6.0,
+   "0.825": 5.0,
+   "0.85": 4.0,
+   "0.875": 3.0,
+   "0.9": 2.0,
+   "0.925": 2.0,
+   "0.95": 1.0,
+   "0.975": 1.0,
+   "1.0": 1.0
+  },
+  "Bench Press": {
+   "0.5": 20,
+   "0.525": 18,
+   "0.55": 16,
+   "0.575": 15,
+   "0.6": 14,
+   "0.625": 13,
+   "0.65": 12,
+   "0.675": 11,
+   "0.7": 10,
+   "0.725": 9,
+   "0.75": 8,
+   "0.775": 7,
+   "0.8": 6,
+   "0.825": 5,
+   "0.85": 4,
+   "0.875": 3,
+   "0.9": 2,
+   "0.925": 2,
+   "0.95": 1,
+   "0.975": 1,
+   "1.0": 1
+  },
+  "Deadlift": {
+   "0.5": 20,
+   "0.525": 18,
+   "0.55": 16,
+   "0.575": 15,
+   "0.6": 14,
+   "0.625": 13,
+   "0.65": 12,
+   "0.675": 11,
+   "0.7": 10,
+   "0.725": 9,
+   "0.75": 8,
+   "0.775": 7,
+   "0.8": 6,
+   "0.825": 5,
+   "0.85": 4,
+   "0.875": 3,
+   "0.9": 2,
+   "0.925": 2,
+   "0.95": 1,
+   "0.975": 1,
+   "1.0": 1
+  },
+  "Seated OHP": {
+   "0.5": 20,
+   "0.525": 18,
+   "0.55": 16,
+   "0.575": 15,
+   "0.6": 14,
+   "0.625": 13,
+   "0.65": 12,
+   "0.675": 11,
+   "0.7": 10,
+   "0.725": 9,
+   "0.75": 8,
+   "0.775": 7,
+   "0.8": 6,
+   "0.825": 5,
+   "0.85": 4,
+   "0.875": 3,
+   "0.9": 2,
+   "0.925": 2,
+   "0.95": 1,
+   "0.975": 1,
+   "1.0": 1
+  },
+  "Front Squat": {
+   "0.5": 20,
+   "0.525": 18,
+   "0.55": 16,
+   "0.575": 15,
+   "0.6": 14,
+   "0.625": 13,
+   "0.65": 12,
+   "0.675": 11,
+   "0.7": 10,
+   "0.725": 9,
+   "0.75": 8,
+   "0.775": 7,
+   "0.8": 6,
+   "0.825": 5,
+   "0.85": 4,
+   "0.875": 3,
+   "0.9": 2,
+   "0.925": 2,
+   "0.95": 1,
+   "0.975": 1,
+   "1.0": 1
+  },
+  "Paused Squat": {
+   "0.5": 20,
+   "0.525": 18,
+   "0.55": 16,
+   "0.575": 15,
+   "0.6": 14,
+   "0.625": 13,
+   "0.65": 12,
+   "0.675": 11,
+   "0.7": 10,
+   "0.725": 9,
+   "0.75": 8,
+   "0.775": 7,
+   "0.8": 6,
+   "0.825": 5,
+   "0.85": 4,
+   "0.875": 3,
+   "0.9": 2,
+   "0.925": 2,
+   "0.95": 1,
+   "0.975": 1,
+   "1.0": 1
+  },
+  "Close Grip Bench": {
+   "0.5": 20,
+   "0.525": 18,
+   "0.55": 16,
+   "0.575": 15,
+   "0.6": 14,
+   "0.625": 13,
+   "0.65": 12,
+   "0.675": 11,
+   "0.7": 10,
+   "0.725": 9,
+   "0.75": 8,
+   "0.775": 7,
+   "0.8": 6,
+   "0.825": 5,
+   "0.85": 4,
+   "0.875": 3,
+   "0.9": 2,
+   "0.925": 2,
+   "0.95": 1,
+   "0.975": 1,
+   "1.0": 1
+  },
+  "Long Pause Bench": {
+   "0.5": 20,
+   "0.525": 18,
+   "0.55": 16,
+   "0.575": 15,
+   "0.6": 14,
+   "0.625": 13,
+   "0.65": 12,
+   "0.675": 11,
+   "0.7": 10,
+   "0.725": 9,
+   "0.75": 8,
+   "0.775": 7,
+   "0.8": 6,
+   "0.825": 5,
+   "0.85": 4,
+   "0.875": 3,
+   "0.9": 2,
+   "0.925": 2,
+   "0.95": 1,
+   "0.975": 1,
+   "1.0": 1
+  },
+  "Sumo Deadlift": {
+   "0.5": 20,
+   "0.525": 18,
+   "0.55": 16,
+   "0.575": 15,
+   "0.6": 14,
+   "0.625": 13,
+   "0.65": 12,
+   "0.675": 11,
+   "0.7": 10,
+   "0.725": 9,
+   "0.75": 8,
+   "0.775": 7,
+   "0.8": 6,
+   "0.825": 5,
+   "0.85": 4,
+   "0.875": 3,
+   "0.9": 2,
+   "0.925": 2,
+   "0.95": 1,
+   "0.975": 1,
+   "1.0": 1
+  },
+  "Incline Press": {
+   "0.5": 20,
+   "0.525": 18,
+   "0.55": 16,
+   "0.575": 15,
+   "0.6": 14,
+   "0.625": 13,
+   "0.65": 12,
+   "0.675": 11,
+   "0.7": 10,
+   "0.725": 9,
+   "0.75": 8,
+   "0.775": 7,
+   "0.8": 6,
+   "0.825": 5,
+   "0.85": 4,
+   "0.875": 3,
+   "0.9": 2,
+   "0.925": 2,
+   "0.95": 1,
+   "0.975": 1,
+   "1.0": 1
+  },
+  "Barbell rows": {
+   "0.5": 20,
+   "0.525": 18,
+   "0.55": 16,
+   "0.575": 15,
+   "0.6": 14,
+   "0.625": 13,
+   "0.65": 12,
+   "0.675": 11,
+   "0.7": 10,
+   "0.725": 9,
+   "0.75": 8,
+   "0.775": 7,
+   "0.8": 6,
+   "0.825": 5,
+   "0.85": 4,
+   "0.875": 3,
+   "0.9": 2,
+   "0.925": 2,
+   "0.95": 1,
+   "0.975": 1,
+   "1.0": 1
+  },
+  "DB rows": {
+   "0.5": 20,
+   "0.525": 18,
+   "0.55": 16,
+   "0.575": 15,
+   "0.6": 14,
+   "0.625": 13,
+   "0.65": 12,
+   "0.675": 11,
+   "0.7": 10,
+   "0.725": 9,
+   "0.75": 8,
+   "0.775": 7,
+   "0.8": 6,
+   "0.825": 5,
+   "0.85": 4,
+   "0.875": 3,
+   "0.9": 2,
+   "0.925": 2,
+   "0.95": 1,
+   "0.975": 1,
+   "1.0": 1
+  },
+  "Pull-ups": {
+   "0.5": 20,
+   "0.525": 18,
+   "0.55": 16,
+   "0.575": 15,
+   "0.6": 14,
+   "0.625": 13,
+   "0.65": 12,
+   "0.675": 11,
+   "0.7": 10,
+   "0.725": 9,
+   "0.75": 8,
+   "0.775": 7,
+   "0.8": 6,
+   "0.825": 5,
+   "0.85": 4,
+   "0.875": 3,
+   "0.9": 2,
+   "0.925": 2,
+   "0.95": 1,
+   "0.975": 1,
+   "1.0": 1
+  }
+ },
+ "rir_targets": {
+  "Squat": {
+   "0.5": 0.0,
+   "0.525": 0.0,
+   "0.55": 0.0,
+   "0.575": 0.0,
+   "0.6": 0.0,
+   "0.625": 0.0,
+   "0.65": 0.0,
+   "0.675": 0.0,
+   "0.7": 0.0,
+   "0.725": 0.0,
+   "0.75": 0.0,
+   "0.775": 0.0,
+   "0.8": 0.0,
+   "0.825": 0.0,
+   "0.85": 0.0,
+   "0.875": 0.0,
+   "0.9": 0.0,
+   "0.925": 0.0,
+   "0.95": 0.0,
+   "0.975": 0.0,
+   "1.0": 0.0
+  },
+  "Bench Press": {
+   "0.5": 0.0,
+   "0.525": 0.0,
+   "0.55": 0.0,
+   "0.575": 0.0,
+   "0.6": 0.0,
+   "0.625": 0.0,
+   "0.65": 0.0,
+   "0.675": 0.0,
+   "0.7": 0.0,
+   "0.725": 0.0,
+   "0.75": 0.0,
+   "0.775": 0.0,
+   "0.8": 0.0,
+   "0.825": 0.0,
+   "0.85": 0.0,
+   "0.875": 0.0,
+   "0.9": 0.0,
+   "0.925": 0.0,
+   "0.95": 0.0,
+   "0.975": 0.0,
+   "1.0": 0.0
+  },
+  "Deadlift": {
+   "0.5": 0.0,
+   "0.525": 0.0,
+   "0.55": 0.0,
+   "0.575": 0.0,
+   "0.6": 0.0,
+   "0.625": 0.0,
+   "0.65": 0.0,
+   "0.675": 0.0,
+   "0.7": 0.0,
+   "0.725": 0.0,
+   "0.75": 0.0,
+   "0.775": 0.0,
+   "0.8": 0.0,
+   "0.825": 0.0,
+   "0.85": 0.0,
+   "0.875": 0.0,
+   "0.9": 0.0,
+   "0.925": 0.0,
+   "0.95": 0.0,
+   "0.975": 0.0,
+   "1.0": 0.0
+  },
+  "Seated OHP": {
+   "0.5": 0.0,
+   "0.525": 0.0,
+   "0.55": 0.0,
+   "0.575": 0.0,
+   "0.6": 0.0,
+   "0.625": 0.0,
+   "0.65": 0.0,
+   "0.675": 0.0,
+   "0.7": 0.0,
+   "0.725": 0.0,
+   "0.75": 0.0,
+   "0.775": 0.0,
+   "0.8": 0.0,
+   "0.825": 0.0,
+   "0.85": 0.0,
+   "0.875": 0.0,
+   "0.9": 0.0,
+   "0.925": 0.0,
+   "0.95": 0.0,
+   "0.975": 0.0,
+   "1.0": 0.0
+  },
+  "Front Squat": {
+   "0.5": 0.0,
+   "0.525": 0.0,
+   "0.55": 0.0,
+   "0.575": 0.0,
+   "0.6": 0.0,
+   "0.625": 0.0,
+   "0.65": 0.0,
+   "0.675": 0.0,
+   "0.7": 0.0,
+   "0.725": 0.0,
+   "0.75": 0.0,
+   "0.775": 0.0,
+   "0.8": 0.0,
+   "0.825": 0.0,
+   "0.85": 0.0,
+   "0.875": 0.0,
+   "0.9": 0.0,
+   "0.925": 0.0,
+   "0.95": 0.0,
+   "0.975": 0.0,
+   "1.0": 0.0
+  },
+  "Paused Squat": {
+   "0.5": 0.0,
+   "0.525": 0.0,
+   "0.55": 0.0,
+   "0.575": 0.0,
+   "0.6": 0.0,
+   "0.625": 0.0,
+   "0.65": 0.0,
+   "0.675": 0.0,
+   "0.7": 0.0,
+   "0.725": 0.0,
+   "0.75": 0.0,
+   "0.775": 0.0,
+   "0.8": 0.0,
+   "0.825": 0.0,
+   "0.85": 0.0,
+   "0.875": 0.0,
+   "0.9": 0.0,
+   "0.925": 0.0,
+   "0.95": 0.0,
+   "0.975": 0.0,
+   "1.0": 0.0
+  },
+  "Close Grip Bench": {
+   "0.5": 0.0,
+   "0.525": 0.0,
+   "0.55": 0.0,
+   "0.575": 0.0,
+   "0.6": 0.0,
+   "0.625": 0.0,
+   "0.65": 0.0,
+   "0.675": 0.0,
+   "0.7": 0.0,
+   "0.725": 0.0,
+   "0.75": 0.0,
+   "0.775": 0.0,
+   "0.8": 0.0,
+   "0.825": 0.0,
+   "0.85": 0.0,
+   "0.875": 0.0,
+   "0.9": 0.0,
+   "0.925": 0.0,
+   "0.95": 0.0,
+   "0.975": 0.0,
+   "1.0": 0.0
+  },
+  "Long Pause Bench": {
+   "0.5": 0.0,
+   "0.525": 0.0,
+   "0.55": 0.0,
+   "0.575": 0.0,
+   "0.6": 0.0,
+   "0.625": 0.0,
+   "0.65": 0.0,
+   "0.675": 0.0,
+   "0.7": 0.0,
+   "0.725": 0.0,
+   "0.75": 0.0,
+   "0.775": 0.0,
+   "0.8": 0.0,
+   "0.825": 0.0,
+   "0.85": 0.0,
+   "0.875": 0.0,
+   "0.9": 0.0,
+   "0.925": 0.0,
+   "0.95": 0.0,
+   "0.975": 0.0,
+   "1.0": 0.0
+  },
+  "Sumo Deadlift": {
+   "0.5": 0.0,
+   "0.525": 0.0,
+   "0.55": 0.0,
+   "0.575": 0.0,
+   "0.6": 0.0,
+   "0.625": 0.0,
+   "0.65": 0.0,
+   "0.675": 0.0,
+   "0.7": 0.0,
+   "0.725": 0.0,
+   "0.75": 0.0,
+   "0.775": 0.0,
+   "0.8": 0.0,
+   "0.825": 0.0,
+   "0.85": 0.0,
+   "0.875": 0.0,
+   "0.9": 0.0,
+   "0.925": 0.0,
+   "0.95": 0.0,
+   "0.975": 0.0,
+   "1.0": 0.0
+  },
+  "Incline Press": {
+   "0.5": 0.0,
+   "0.525": 0.0,
+   "0.55": 0.0,
+   "0.575": 0.0,
+   "0.6": 0.0,
+   "0.625": 0.0,
+   "0.65": 0.0,
+   "0.675": 0.0,
+   "0.7": 0.0,
+   "0.725": 0.0,
+   "0.75": 0.0,
+   "0.775": 0.0,
+   "0.8": 0.0,
+   "0.825": 0.0,
+   "0.85": 0.0,
+   "0.875": 0.0,
+   "0.9": 0.0,
+   "0.925": 0.0,
+   "0.95": 0.0,
+   "0.975": 0.0,
+   "1.0": 0.0
+  },
+  "Barbell rows": {
+   "0.5": 0.0,
+   "0.525": 0.0,
+   "0.55": 0.0,
+   "0.575": 0.0,
+   "0.6": 0.0,
+   "0.625": 0.0,
+   "0.65": 0.0,
+   "0.675": 0.0,
+   "0.7": 0.0,
+   "0.725": 0.0,
+   "0.75": 0.0,
+   "0.775": 0.0,
+   "0.8": 0.0,
+   "0.825": 0.0,
+   "0.85": 0.0,
+   "0.875": 0.0,
+   "0.9": 0.0,
+   "0.925": 0.0,
+   "0.95": 0.0,
+   "0.975": 0.0,
+   "1.0": 0.0
+  },
+  "DB rows": {
+   "0.5": 0.0,
+   "0.525": 0.0,
+   "0.55": 0.0,
+   "0.575": 0.0,
+   "0.6": 0.0,
+   "0.625": 0.0,
+   "0.65": 0.0,
+   "0.675": 0.0,
+   "0.7": 0.0,
+   "0.725": 0.0,
+   "0.75": 0.0,
+   "0.775": 0.0,
+   "0.8": 0.0,
+   "0.825": 0.0,
+   "0.85": 0.0,
+   "0.875": 0.0,
+   "0.9": 0.0,
+   "0.925": 0.0,
+   "0.95": 0.0,
+   "0.975": 0.0,
+   "1.0": 0.0
+  },
+  "Pull-ups": {
+   "0.5": 0.0,
+   "0.525": 0.0,
+   "0.55": 0.0,
+   "0.575": 0.0,
+   "0.6": 0.0,
+   "0.625": 0.0,
+   "0.65": 0.0,
+   "0.675": 0.0,
+   "0.7": 0.0,
+   "0.725": 0.0,
+   "0.75": 0.0,
+   "0.775": 0.0,
+   "0.8": 0.0,
+   "0.825": 0.0,
+   "0.85": 0.0,
+   "0.875": 0.0,
+   "0.9": 0.0,
+   "0.925": 0.0,
+   "0.95": 0.0,
+   "0.975": 0.0,
+   "1.0": 0.0
+  }
+ },
+ "weekly_intensity": {
+  "Squat": {
+   "1": 0.875,
+   "2": 0.875,
+   "3": 0.875,
+   "4": 0.875,
+   "5": 0.875,
+   "6": 0.875,
+   "7": 0.875,
+   "8": 0.875,
+   "9": 0.875,
+   "10": 0.875,
+   "11": 0.875,
+   "12": 0.875,
+   "13": 0.875,
+   "14": 0.875,
+   "15": 0.875,
+   "16": 0.875,
+   "17": 0.875,
+   "18": 0.875,
+   "19": 0.875,
+   "20": 0.875,
+   "21": 0.875
+  },
+  "Bench Press": {
+   "1": 0.875,
+   "2": 0.875,
+   "3": 0.875,
+   "4": 0.875,
+   "5": 0.875,
+   "6": 0.875,
+   "7": 0.875,
+   "8": 0.875,
+   "9": 0.875,
+   "10": 0.875,
+   "11": 0.875,
+   "12": 0.875,
+   "13": 0.875,
+   "14": 0.875,
+   "15": 0.875,
+   "16": 0.875,
+   "17": 0.875,
+   "18": 0.875,
+   "19": 0.875,
+   "20": 0.875,
+   "21": 0.875
+  },
+  "Deadlift": {
+   "1": 0.875,
+   "2": 0.875,
+   "3": 0.875,
+   "4": 0.875,
+   "5": 0.875,
+   "6": 0.875,
+   "7": 0.875,
+   "8": 0.875,
+   "9": 0.875,
+   "10": 0.875,
+   "11": 0.875,
+   "12": 0.875,
+   "13": 0.875,
+   "14": 0.875,
+   "15": 0.875,
+   "16": 0.875,
+   "17": 0.875,
+   "18": 0.875,
+   "19": 0.875,
+   "20": 0.875,
+   "21": 0.875
+  },
+  "Seated OHP": {
+   "1": 0.875,
+   "2": 0.875,
+   "3": 0.875,
+   "4": 0.875,
+   "5": 0.875,
+   "6": 0.875,
+   "7": 0.875,
+   "8": 0.875,
+   "9": 0.875,
+   "10": 0.875,
+   "11": 0.875,
+   "12": 0.875,
+   "13": 0.875,
+   "14": 0.875,
+   "15": 0.875,
+   "16": 0.875,
+   "17": 0.875,
+   "18": 0.875,
+   "19": 0.875,
+   "20": 0.875,
+   "21": 0.875
+  },
+  "Front Squat": {
+   "1": 0.825,
+   "2": 0.825,
+   "3": 0.825,
+   "4": 0.825,
+   "5": 0.825,
+   "6": 0.825,
+   "7": 0.825,
+   "8": 0.825,
+   "9": 0.825,
+   "10": 0.825,
+   "11": 0.825,
+   "12": 0.825,
+   "13": 0.825,
+   "14": 0.825,
+   "15": 0.825,
+   "16": 0.825,
+   "17": 0.825,
+   "18": 0.825,
+   "19": 0.825,
+   "20": 0.825,
+   "21": 0.825
+  },
+  "Paused Squat": {
+   "1": 0.75,
+   "2": 0.75,
+   "3": 0.75,
+   "4": 0.75,
+   "5": 0.75,
+   "6": 0.75,
+   "7": 0.75,
+   "8": 0.75,
+   "9": 0.75,
+   "10": 0.75,
+   "11": 0.75,
+   "12": 0.75,
+   "13": 0.75,
+   "14": 0.75,
+   "15": 0.75,
+   "16": 0.75,
+   "17": 0.75,
+   "18": 0.75,
+   "19": 0.75,
+   "20": 0.75,
+   "21": 0.75
+  },
+  "Close Grip Bench": {
+   "1": 0.825,
+   "2": 0.825,
+   "3": 0.825,
+   "4": 0.825,
+   "5": 0.825,
+   "6": 0.825,
+   "7": 0.825,
+   "8": 0.825,
+   "9": 0.825,
+   "10": 0.825,
+   "11": 0.825,
+   "12": 0.825,
+   "13": 0.825,
+   "14": 0.825,
+   "15": 0.825,
+   "16": 0.825,
+   "17": 0.825,
+   "18": 0.825,
+   "19": 0.825,
+   "20": 0.825,
+   "21": 0.825
+  },
+  "Long Pause Bench": {
+   "1": 0.75,
+   "2": 0.75,
+   "3": 0.75,
+   "4": 0.75,
+   "5": 0.75,
+   "6": 0.75,
+   "7": 0.75,
+   "8": 0.75,
+   "9": 0.75,
+   "10": 0.75,
+   "11": 0.75,
+   "12": 0.75,
+   "13": 0.75,
+   "14": 0.75,
+   "15": 0.75,
+   "16": 0.75,
+   "17": 0.75,
+   "18": 0.75,
+   "19": 0.75,
+   "20": 0.75,
+   "21": 0.75
+  },
+  "Sumo Deadlift": {
+   "1": 0.75,
+   "2": 0.75,
+   "3": 0.75,
+   "4": 0.75,
+   "5": 0.75,
+   "6": 0.75,
+   "7": 0.75,
+   "8": 0.75,
+   "9": 0.75,
+   "10": 0.75,
+   "11": 0.75,
+   "12": 0.75,
+   "13": 0.75,
+   "14": 0.75,
+   "15": 0.75,
+   "16": 0.75,
+   "17": 0.75,
+   "18": 0.75,
+   "19": 0.75,
+   "20": 0.75,
+   "21": 0.75
+  },
+  "Incline Press": {
+   "1": 0.75,
+   "2": 0.75,
+   "3": 0.75,
+   "4": 0.75,
+   "5": 0.75,
+   "6": 0.75,
+   "7": 0.75,
+   "8": 0.75,
+   "9": 0.75,
+   "10": 0.75,
+   "11": 0.75,
+   "12": 0.75,
+   "13": 0.75,
+   "14": 0.75,
+   "15": 0.75,
+   "16": 0.75,
+   "17": 0.75,
+   "18": 0.75,
+   "19": 0.75,
+   "20": 0.75,
+   "21": 0.75
+  },
+  "Barbell rows": {
+   "1": 0.75,
+   "2": 0.75,
+   "3": 0.75,
+   "4": 0.75,
+   "5": 0.75,
+   "6": 0.75,
+   "7": 0.75,
+   "8": 0.75,
+   "9": 0.75,
+   "10": 0.75,
+   "11": 0.75,
+   "12": 0.75,
+   "13": 0.75,
+   "14": 0.75,
+   "15": 0.75,
+   "16": 0.75,
+   "17": 0.75,
+   "18": 0.75,
+   "19": 0.75,
+   "20": 0.75,
+   "21": 0.75
+  },
+  "DB rows": {
+   "1": 0.75,
+   "2": 0.75,
+   "3": 0.75,
+   "4": 0.75,
+   "5": 0.75,
+   "6": 0.75,
+   "7": 0.75,
+   "8": 0.75,
+   "9": 0.75,
+   "10": 0.75,
+   "11": 0.75,
+   "12": 0.75,
+   "13": 0.75,
+   "14": 0.75,
+   "15": 0.75,
+   "16": 0.75,
+   "17": 0.75,
+   "18": 0.75,
+   "19": 0.75,
+   "20": 0.75,
+   "21": 0.75
+  },
+  "Pull-ups": {
+   "1": 0.75,
+   "2": 0.75,
+   "3": 0.75,
+   "4": 0.75,
+   "5": 0.75,
+   "6": 0.75,
+   "7": 0.75,
+   "8": 0.75,
+   "9": 0.75,
+   "10": 0.75,
+   "11": 0.75,
+   "12": 0.75,
+   "13": 0.75,
+   "14": 0.75,
+   "15": 0.75,
+   "16": 0.75,
+   "17": 0.75,
+   "18": 0.75,
+   "19": 0.75,
+   "20": 0.75,
+   "21": 0.75
+  }
+ },
+ "variants": {
+  "3x": {
+   "days": [
+    {
+     "day": 1,
+     "lifts": [
+      {
+       "name": "Squat",
+       "tm_row": 4,
+       "work_row": 5
+      },
+      {
+       "name": "Seated OHP",
+       "tm_row": 7,
+       "work_row": 8
+      },
+      {
+       "name": "Sumo Deadlift",
+       "tm_row": 9,
+       "work_row": 10
+      },
+      {
+       "name": "Long Pause Bench",
+       "tm_row": 11,
+       "work_row": 12
+      },
+      {
+       "name": "Pull-ups",
+       "tm_row": 13,
+       "work_row": 14
+      }
+     ],
+     "accessory_rows": [
+      16,
+      17,
+      18
+     ]
+    },
+    {
+     "day": 2,
+     "lifts": [
+      {
+       "name": "Bench Press",
+       "tm_row": 20,
+       "work_row": 21
+      },
+      {
+       "name": "Front Squat",
+       "tm_row": 22,
+       "work_row": 23
+      },
+      {
+       "name": "Incline Press",
+       "tm_row": 24,
+       "work_row": 25
+      },
+      {
+       "name": "Barbell rows",
+       "tm_row": 26,
+       "work_row": 27
+      }
+     ],
+     "accessory_rows": [
+      29,
+      30,
+      31
+     ]
+    },
+    {
+     "day": 3,
+     "lifts": [
+      {
+       "name": "Deadlift",
+       "tm_row": 33,
+       "work_row": 34
+      },
+      {
+       "name": "Close Grip Bench",
+       "tm_row": 35,
+       "work_row": 36
+      },
+      {
+       "name": "Paused Squat",
+       "tm_row": 37,
+       "work_row": 38
+      },
+      {
+       "name": "DB rows",
+       "tm_row": 39,
+       "work_row": 40
+      }
+     ],
+     "accessory_rows": [
+      42,
+      43,
+      44
+     ]
+    }
+   ],
+   "history": [
+    {
+     "day": 1,
+     "lift": "Squat",
+     "week": 1,
+     "single_at8": null,
+     "sets_completed": 3.0,
+     "rir_last_set": 3.0,
+     "video": null,
+     "notes": null,
+     "_tm_cached": 165,
+     "_weight_cached": 145
+    },
+    {
+     "day": 1,
+     "lift": "Squat",
+     "week": 2,
+     "single_at8": null,
+     "sets_completed": 6.0,
+     "rir_last_set": 3.0,
+     "video": null,
+     "notes": null,
+     "_tm_cached": 173.25,
+     "_weight_cached": 152.5
+    },
+    {
+     "day": 1,
+     "lift": "Squat",
+     "week": 3,
+     "single_at8": null,
+     "sets_completed": 3.0,
+     "rir_last_set": 23.0,
+     "video": null,
+     "notes": "125 ugly",
+     "_tm_cached": 181.9125,
+     "_weight_cached": 160
+    },
+    {
+     "day": 1,
+     "lift": "Squat",
+     "week": 4,
+     "single_at8": null,
+     "sets_completed": 3.0,
+     "rir_last_set": 7.0,
+     "video": null,
+     "notes": 125.0,
+     "_tm_cached": 191.008125,
+     "_weight_cached": 167.5
+    },
+    {
+     "day": 1,
+     "lift": "Squat",
+     "week": 5,
+     "single_at8": null,
+     "sets_completed": 3.0,
+     "rir_last_set": 5.0,
+     "video": null,
+     "notes": null,
+     "_tm_cached": 200.5585313,
+     "_weight_cached": 175
+    },
+    {
+     "day": 1,
+     "lift": "Squat",
+     "week": 6,
+     "single_at8": null,
+     "sets_completed": 3.0,
+     "rir_last_set": 0.0,
+     "video": null,
+     "notes": null,
+     "_tm_cached": 210.5864578,
+     "_weight_cached": 185
+    },
+    {
+     "day": 1,
+     "lift": "Squat",
+     "week": 7,
+     "single_at8": null,
+     "sets_completed": 3.0,
+     "rir_last_set": null,
+     "video": null,
+     "notes": null,
+     "_tm_cached": 210.5864578,
+     "_weight_cached": 185
+    },
+    {
+     "day": 1,
+     "lift": "Squat",
+     "week": 8,
+     "single_at8": null,
+     "sets_completed": 3.0,
+     "rir_last_set": 3.0,
+     "video": null,
+     "notes": null,
+     "_tm_cached": 210.5864578,
+     "_weight_cached": 185
+    },
+    {
+     "day": 1,
+     "lift": "Squat",
+     "week": 9,
+     "single_at8": null,
+     "sets_completed": 3.0,
+     "rir_last_set": 2.0,
+     "video": null,
+     "notes": null,
+     "_tm_cached": 221.1157807,
+     "_weight_cached": 192.5
+    },
+    {
+     "day": 1,
+     "lift": "Squat",
+     "week": 10,
+     "single_at8": null,
+     "sets_completed": 3.0,
+     "rir_last_set": null,
+     "video": null,
+     "notes": null,
+     "_tm_cached": 227.7492541,
+     "_weight_cached": 200
+    },
+    {
+     "day": 1,
+     "lift": "Seated OHP",
+     "week": 1,
+     "single_at8": null,
+     "sets_completed": 3.0,
+     "rir_last_set": 1.0,
+     "video": null,
+     "notes": null,
+     "_tm_cached": 100,
+     "_weight_cached": 87.5
+    },
+    {
+     "day": 1,
+     "lift": "Seated OHP",
+     "week": 2,
+     "single_at8": null,
+     "sets_completed": 3.0,
+     "rir_last_set": null,
+     "video": null,
+     "notes": null,
+     "_tm_cached": 101,
+     "_weight_cached": 87.5
+    },
+    {
+     "day": 1,
+     "lift": "Seated OHP",
+     "week": 3,
+     "single_at8": null,
+     "sets_completed": 2.0,
+     "rir_last_set": null,
+     "video": null,
+     "notes": 55.0,
+     "_tm_cached": 101,
+     "_weight_cached": 87.5
+    },
+    {
+     "day": 1,
+     "lift": "Seated OHP",
+     "week": 4,
+     "single_at8": null,
+     "sets_completed": 3.0,
+     "rir_last_set": 2.0,
+     "video": null,
+     "notes": null,
+     "_tm_cached": 98.98,
+     "_weight_cached": 87.5
+    },
+    {
+     "day": 1,
+     "lift": "Seated OHP",
+     "week": 5,
+     "single_at8": null,
+     "sets_completed": 3.0,
+     "rir_last_set": 2.0,
+     "video": null,
+     "notes": null,
+     "_tm_cached": 101.9494,
+     "_weight_cached": 90
+    },
+    {
+     "day": 1,
+     "lift": "Seated OHP",
+     "week": 6,
+     "single_at8": null,
+     "sets_completed": 3.0,
+     "rir_last_set": 1.0,
+     "video": null,
+     "notes": null,
+     "_tm_cached": 105.007882,
+     "_weight_cached": 92.5
+    },
+    {
+     "day": 1,
+     "lift": "Seated OHP",
+     "week": 7,
+     "single_at8": null,
+     "sets_completed": 3.0,
+     "rir_last_set": null,
+     "video": null,
+     "notes": null,
+     "_tm_cached": 106.0579608,
+     "_weight_cached": 92.5
+    },
+    {
+     "day": 1,
+     "lift": "Seated OHP",
+     "week": 8,
+     "single_at8": null,
+     "sets_completed": 3.0,
+     "rir_last_set": null,
+     "video": null,
+     "notes": null,
+     "_tm_cached": 106.0579608,
+     "_weight_cached": 92.5
+    },
+    {
+     "day": 1,
+     "lift": "Seated OHP",
+     "week": 9,
+     "single_at8": null,
+     "sets_completed": 3.0,
+     "rir_last_set": null,
+     "video": null,
+     "notes": null,
+     "_tm_cached": 106.0579608,
+     "_weight_cached": 92.5
+    },
+    {
+     "day": 1,
+     "lift": "Seated OHP",
+     "week": 10,
+     "single_at8": null,
+     "sets_completed": 3.0,
+     "rir_last_set": 1.0,
+     "video": null,
+     "notes": null,
+     "_tm_cached": 106.0579608,
+     "_weight_cached": 92.5
+    },
+    {
+     "day": 1,
+     "lift": "Sumo Deadlift",
+     "week": 1,
+     "single_at8": null,
+     "sets_completed": 3.0,
+     "rir_last_set": 1.0,
+     "video": null,
+     "notes": null,
+     "_tm_cached": 168,
+     "_weight_cached": 125
+    },
+    {
+     "day": 1,
+     "lift": "Sumo Deadlift",
+     "week": 3,
+     "single_at8": null,
+     "sets_completed": 3.0,
+     "rir_last_set": 3.0,
+     "video": null,
+     "notes": 135.0,
+     "_tm_cached": 169.68,
+     "_weight_cached": 127.5
+    },
+    {
+     "day": 1,
+     "lift": "Sumo Deadlift",
+     "week": 4,
+     "single_at8": null,
+     "sets_completed": 3.0,
+     "rir_last_set": 1.0,
+     "video": null,
+     "notes": null,
+     "_tm_cached": 178.164,
+     "_weight_cached": 132.5
+    },
+    {
+     "day": 1,
+     "lift": "Sumo Deadlift",
+     "week": 7,
+     "single_at8": null,
+     "sets_completed": 3.0,
+     "rir_last_set": null,
+     "video": null,
+     "notes": null,
+     "_tm_cached": 179.94564,
+     "_weight_cached": 135
+    },
+    {
+     "day": 1,
+     "lift": "Long Pause Bench",
+     "week": 1,
+     "single_at8": null,
+     "sets_completed": 3.0,
+     "rir_last_set": 0.0,
+     "video": null,
+     "notes": null,
+     "_tm_cached": 85,
+     "_weight_cached": 65
+    },
+    {
+     "day": 1,
+     "lift": "Long Pause Bench",
+     "week": 2,
+     "single_at8": null,
+     "sets_completed": 3.0,
+     "rir_last_set": 3.0,
+     "video": null,
+     "notes": null,
+     "_tm_cached": 85,
+     "_weight_cached": 65
+    },
+    {
+     "day": 1,
+     "lift": "Long Pause Bench",
+     "week": 3,
+     "single_at8": null,
+     "sets_completed": 3.0,
+     "rir_last_set": 3.0,
+     "video": null,
+     "notes": null,
+     "_tm_cached": 89.25,
+     "_weight_cached": 67.5
+    },
+    {
+     "day": 1,
+     "lift": "Long Pause Bench",
+     "week": 7,
+     "single_at8": null,
+     "sets_completed": 3.0,
+     "rir_last_set": null,
+     "video": null,
+     "notes": null,
+     "_tm_cached": 93.7125,
+     "_weight_cached": 70
+    },
+    {
+     "day": 1,
+     "lift": "Long Pause Bench",
+     "week": 8,
+     "single_at8": null,
+     "sets_completed": 3.0,
+     "rir_last_set": 3.0,
+     "video": null,
+     "notes": null,
+     "_tm_cached": 93.7125,
+     "_weight_cached": 70
+    },
+    {
+     "day": 1,
+     "lift": "Long Pause Bench",
+     "week": 9,
+     "single_at8": null,
+     "sets_completed": 3.0,
+     "rir_last_set": 2.0,
+     "video": null,
+     "notes": null,
+     "_tm_cached": 98.398125,
+     "_weight_cached": 75
+    },
+    {
+     "day": 1,
+     "lift": "Pull-ups",
+     "week": 8,
+     "single_at8": null,
+     "sets_completed": 1.0,
+     "rir_last_set": null,
+     "video": null,
+     "notes": null,
+     "_tm_cached": 160,
+     "_weight_cached": 120
+    },
+    {
+     "day": 2,
+     "lift": "Bench Press",
+     "week": 1,
+     "single_at8": null,
+     "sets_completed": 3.0,
+     "rir_last_set": 0.0,
+     "video": null,
+     "notes": null,
+     "_tm_cached": 115,
+     "_weight_cached": 100
+    },
+    {
+     "day": 2,
+     "lift": "Bench Press",
+     "week": 2,
+     "single_at8": null,
+     "sets_completed": 4.0,
+     "rir_last_set": 3.0,
+     "video": null,
+     "notes": null,
+     "_tm_cached": 115,
+     "_weight_cached": 100
+    },
+    {
+     "day": 2,
+     "lift": "Bench Press",
+     "week": 3,
+     "single_at8": null,
+     "sets_completed": 3.0,
+     "rir_last_set": 2.0,
+     "video": null,
+     "notes": 85.0,
+     "_tm_cached": 120.75,
+     "_weight_cached": 105
+    },
+    {
+     "day": 2,
+     "lift": "Bench Press",
+     "week": 5,
+     "single_at8": null,
+     "sets_completed": 3.0,
+     "rir_last_set": 3.0,
+     "video": null,
+     "notes": null,
+     "_tm_cached": 124.3725,
+     "_weight_cached": 110
+    },
+    {
+     "day": 2,
+     "lift": "Bench Press",
+     "week": 6,
+     "single_at8": null,
+     "sets_completed": 3.0,
+     "rir_last_set": 3.0,
+     "video": null,
+     "notes": null,
+     "_tm_cached": 130.591125,
+     "_weight_cached": 115
+    },
+    {
+     "day": 2,
+     "lift": "Bench Press",
+     "week": 7,
+     "single_at8": null,
+     "sets_completed": 3.0,
+     "rir_last_set": 2.0,
+     "video": null,
+     "notes": null,
+     "_tm_cached": 137.1206813,
+     "_weight_cached": 120
+    },
+    {
+     "day": 2,
+     "lift": "Bench Press",
+     "week": 8,
+     "single_at8": null,
+     "sets_completed": 3.0,
+     "rir_last_set": 1.0,
+     "video": null,
+     "notes": null,
+     "_tm_cached": 141.2343017,
+     "_weight_cached": 122.5
+    },
+    {
+     "day": 2,
+     "lift": "Bench Press",
+     "week": 9,
+     "single_at8": null,
+     "sets_completed": 3.0,
+     "rir_last_set": 3.0,
+     "video": null,
+     "notes": null,
+     "_tm_cached": 142.6466447,
+     "_weight_cached": 125
+    },
+    {
+     "day": 2,
+     "lift": "Front Squat",
+     "week": 1,
+     "single_at8": null,
+     "sets_completed": 3.0,
+     "rir_last_set": 0.0,
+     "video": null,
+     "notes": 75.0,
+     "_tm_cached": 120,
+     "_weight_cached": 100
+    },
+    {
+     "day": 2,
+     "lift": "Front Squat",
+     "week": 2,
+     "single_at8": null,
+     "sets_completed": 3.0,
+     "rir_last_set": 1.0,
+     "video": null,
+     "notes": null,
+     "_tm_cached": 120,
+     "_weight_cached": 100
+    },
+    {
+     "day": 2,
+     "lift": "Front Squat",
+     "week": 3,
+     "single_at8": null,
+     "sets_completed": 3.0,
+     "rir_last_set": 5.0,
+     "video": null,
+     "notes": 85.0,
+     "_tm_cached": 121.2,
+     "_weight_cached": 100
+    },
+    {
+     "day": 2,
+     "lift": "Front Squat",
+     "week": 5,
+     "single_at8": null,
+     "sets_completed": 3.0,
+     "rir_last_set": 3.0,
+     "video": null,
+     "notes": null,
+     "_tm_cached": 127.26,
+     "_weight_cached": 105
+    },
+    {
+     "day": 2,
+     "lift": "Front Squat",
+     "week": 7,
+     "single_at8": null,
+     "sets_completed": 3.0,
+     "rir_last_set": 0.0,
+     "video": null,
+     "notes": null,
+     "_tm_cached": 133.623,
+     "_weight_cached": 110
+    },
+    {
+     "day": 2,
+     "lift": "Front Squat",
+     "week": 8,
+     "single_at8": null,
+     "sets_completed": 3.0,
+     "rir_last_set": null,
+     "video": null,
+     "notes": null,
+     "_tm_cached": 133.623,
+     "_weight_cached": 110
+    },
+    {
+     "day": 2,
+     "lift": "Front Squat",
+     "week": 9,
+     "single_at8": null,
+     "sets_completed": 3.0,
+     "rir_last_set": 2.0,
+     "video": null,
+     "notes": null,
+     "_tm_cached": 133.623,
+     "_weight_cached": 110
+    },
+    {
+     "day": 2,
+     "lift": "Incline Press",
+     "week": 1,
+     "single_at8": null,
+     "sets_completed": 3.0,
+     "rir_last_set": 1.0,
+     "video": null,
+     "notes": null,
+     "_tm_cached": 70,
+     "_weight_cached": 52.5
+    },
+    {
+     "day": 2,
+     "lift": "Incline Press",
+     "week": 3,
+     "single_at8": null,
+     "sets_completed": 3.0,
+     "rir_last_set": 6.0,
+     "video": null,
+     "notes": null,
+     "_tm_cached": 70.7,
+     "_weight_cached": 52.5
+    },
+    {
+     "day": 2,
+     "lift": "Incline Press",
+     "week": 5,
+     "single_at8": null,
+     "sets_completed": 3.0,
+     "rir_last_set": 3.0,
+     "video": null,
+     "notes": null,
+     "_tm_cached": 74.235,
+     "_weight_cached": 55
+    },
+    {
+     "day": 2,
+     "lift": "Incline Press",
+     "week": 7,
+     "single_at8": null,
+     "sets_completed": 3.0,
+     "rir_last_set": 5.0,
+     "video": null,
+     "notes": null,
+     "_tm_cached": 77.94675,
+     "_weight_cached": 57.5
+    },
+    {
+     "day": 2,
+     "lift": "Incline Press",
+     "week": 9,
+     "single_at8": null,
+     "sets_completed": 3.0,
+     "rir_last_set": 4.0,
+     "video": null,
+     "notes": null,
+     "_tm_cached": 81.8440875,
+     "_weight_cached": 62.5
+    },
+    {
+     "day": 2,
+     "lift": "Barbell rows",
+     "week": 1,
+     "single_at8": null,
+     "sets_completed": 3.0,
+     "rir_last_set": 2.0,
+     "video": null,
+     "notes": null,
+     "_tm_cached": 95,
+     "_weight_cached": 72.5
+    },
+    {
+     "day": 2,
+     "lift": "Barbell rows",
+     "week": 2,
+     "single_at8": null,
+     "sets_completed": 3.0,
+     "rir_last_set": null,
+     "video": null,
+     "notes": null,
+     "_tm_cached": 97.85,
+     "_weight_cached": 72.5
+    },
+    {
+     "day": 2,
+     "lift": "Barbell rows",
+     "week": 3,
+     "single_at8": null,
+     "sets_completed": 3.0,
+     "rir_last_set": 6.0,
+     "video": null,
+     "notes": null,
+     "_tm_cached": 97.85,
+     "_weight_cached": 72.5
+    },
+    {
+     "day": 2,
+     "lift": "Barbell rows",
+     "week": 8,
+     "single_at8": null,
+     "sets_completed": 3.0,
+     "rir_last_set": 2.0,
+     "video": null,
+     "notes": null,
+     "_tm_cached": 102.7425,
+     "_weight_cached": 77.5
+    },
+    {
+     "day": 3,
+     "lift": "Deadlift",
+     "week": 1,
+     "single_at8": null,
+     "sets_completed": 3.0,
+     "rir_last_set": 3.0,
+     "video": null,
+     "notes": null,
+     "_tm_cached": 180,
+     "_weight_cached": 157.5
+    },
+    {
+     "day": 3,
+     "lift": "Deadlift",
+     "week": 2,
+     "single_at8": null,
+     "sets_completed": 3.0,
+     "rir_last_set": null,
+     "video": null,
+     "notes": 155.0,
+     "_tm_cached": 189,
+     "_weight_cached": 165
+    },
+    {
+     "day": 3,
+     "lift": "Deadlift",
+     "week": 4,
+     "single_at8": null,
+     "sets_completed": 3.0,
+     "rir_last_set": 4.0,
+     "video": null,
+     "notes": null,
+     "_tm_cached": 189,
+     "_weight_cached": 165
+    },
+    {
+     "day": 3,
+     "lift": "Close Grip Bench",
+     "week": 1,
+     "single_at8": null,
+     "sets_completed": 3.0,
+     "rir_last_set": 5.0,
+     "video": null,
+     "notes": null,
+     "_tm_cached": 100,
+     "_weight_cached": 82.5
+    },
+    {
+     "day": 3,
+     "lift": "Close Grip Bench",
+     "week": 2,
+     "single_at8": null,
+     "sets_completed": 3.0,
+     "rir_last_set": 5.0,
+     "video": null,
+     "notes": null,
+     "_tm_cached": 105,
+     "_weight_cached": 87.5
+    },
+    {
+     "day": 3,
+     "lift": "Paused Squat",
+     "week": 1,
+     "single_at8": null,
+     "sets_completed": 3.0,
+     "rir_last_set": 1.0,
+     "video": null,
+     "notes": null,
+     "_tm_cached": 100,
+     "_weight_cached": 75
+    },
+    {
+     "day": 3,
+     "lift": "DB rows",
+     "week": 1,
+     "single_at8": null,
+     "sets_completed": 3.0,
+     "rir_last_set": 6.0,
+     "video": null,
+     "notes": 25.0,
+     "_tm_cached": 35,
+     "_weight_cached": 27.5
+    }
+   ],
+   "accessories": [
+    {
+     "day": 1,
+     "row_index": 0,
+     "name": "Curls",
+     "week": 1,
+     "weight": 20.0,
+     "reps_per_set": 12.0,
+     "set_goal": 3.0,
+     "sets_completed": 3.0,
+     "rir_last_set": 12.0,
+     "_raw": true
+    },
+    {
+     "day": 1,
+     "row_index": 2,
+     "name": "Push ups slow",
+     "week": 7,
+     "reps_per_set": 10.0,
+     "sets_completed": 2.0,
+     "_raw": true
+    }
+   ]
+  },
+  "4x": {
+   "days": [
+    {
+     "day": 1,
+     "lifts": [
+      {
+       "name": "Squat",
+       "tm_row": 4,
+       "work_row": 5
+      },
+      {
+       "name": "Long Pause Bench",
+       "tm_row": 6,
+       "work_row": 7
+      },
+      {
+       "name": "Sumo Deadlift",
+       "tm_row": 8,
+       "work_row": 9
+      },
+      {
+       "name": "DB rows",
+       "tm_row": 10,
+       "work_row": 11
+      }
+     ],
+     "accessory_rows": [
+      13,
+      14,
+      15
+     ]
+    },
+    {
+     "day": 2,
+     "lifts": [
+      {
+       "name": "Bench Press",
+       "tm_row": 17,
+       "work_row": 18
+      },
+      {
+       "name": "Front Squat",
+       "tm_row": 19,
+       "work_row": 20
+      },
+      {
+       "name": "Incline Press",
+       "tm_row": 21,
+       "work_row": 22
+      }
+     ],
+     "accessory_rows": [
+      24,
+      25,
+      26
+     ]
+    },
+    {
+     "day": 3,
+     "lifts": [
+      {
+       "name": "Deadlift",
+       "tm_row": 28,
+       "work_row": 29
+      },
+      {
+       "name": "Close Grip Bench",
+       "tm_row": 30,
+       "work_row": 31
+      },
+      {
+       "name": "Pull-ups",
+       "tm_row": 32,
+       "work_row": 33
+      }
+     ],
+     "accessory_rows": [
+      35,
+      36,
+      37
+     ]
+    },
+    {
+     "day": 4,
+     "lifts": [
+      {
+       "name": "Seated OHP",
+       "tm_row": 39,
+       "work_row": 40
+      },
+      {
+       "name": "Paused Squat",
+       "tm_row": 41,
+       "work_row": 42
+      },
+      {
+       "name": "Barbell rows",
+       "tm_row": 43,
+       "work_row": 44
+      }
+     ],
+     "accessory_rows": [
+      46,
+      47,
+      48
+     ]
+    }
+   ],
+   "history": [],
+   "accessories": []
+  },
+  "5x": {
+   "days": [
+    {
+     "day": 1,
+     "lifts": [
+      {
+       "name": "Squat",
+       "tm_row": 4,
+       "work_row": 5
+      },
+      {
+       "name": "Incline Press",
+       "tm_row": 6,
+       "work_row": 7
+      },
+      {
+       "name": "Barbell rows",
+       "tm_row": 8,
+       "work_row": 9
+      }
+     ],
+     "accessory_rows": [
+      11,
+      12,
+      13
+     ]
+    },
+    {
+     "day": 2,
+     "lifts": [
+      {
+       "name": "Bench Press",
+       "tm_row": 15,
+       "work_row": 16
+      },
+      {
+       "name": "Front Squat",
+       "tm_row": 17,
+       "work_row": 18
+      }
+     ],
+     "accessory_rows": [
+      20,
+      21,
+      22
+     ]
+    },
+    {
+     "day": 3,
+     "lifts": [
+      {
+       "name": "Deadlift",
+       "tm_row": 24,
+       "work_row": 25
+      },
+      {
+       "name": "Close Grip Bench",
+       "tm_row": 26,
+       "work_row": 27
+      },
+      {
+       "name": "Pull-ups",
+       "tm_row": 28,
+       "work_row": 29
+      }
+     ],
+     "accessory_rows": [
+      31,
+      32,
+      33
+     ]
+    },
+    {
+     "day": 4,
+     "lifts": [
+      {
+       "name": "Seated OHP",
+       "tm_row": 35,
+       "work_row": 36
+      },
+      {
+       "name": "Paused Squat",
+       "tm_row": 37,
+       "work_row": 38
+      }
+     ],
+     "accessory_rows": [
+      40,
+      41,
+      42
+     ]
+    },
+    {
+     "day": 5,
+     "lifts": [
+      {
+       "name": "Long Pause Bench",
+       "tm_row": 44,
+       "work_row": 45
+      },
+      {
+       "name": "Sumo Deadlift",
+       "tm_row": 46,
+       "work_row": 47
+      },
+      {
+       "name": "DB rows",
+       "tm_row": 48,
+       "work_row": 49
+      }
+     ],
+     "accessory_rows": [
+      51,
+      52,
+      53
+     ]
+    }
+   ],
+   "history": [
+    {
+     "day": 1,
+     "lift": "Squat",
+     "week": 1,
+     "single_at8": null,
+     "sets_completed": 3.0,
+     "rir_last_set": 3.0,
+     "video": null,
+     "notes": null,
+     "_tm_cached": 165,
+     "_weight_cached": 145
+    },
+    {
+     "day": 1,
+     "lift": "Squat",
+     "week": 2,
+     "single_at8": null,
+     "sets_completed": 3.0,
+     "rir_last_set": null,
+     "video": null,
+     "notes": null,
+     "_tm_cached": 173.25,
+     "_weight_cached": 152.5
+    },
+    {
+     "day": 1,
+     "lift": "Squat",
+     "week": 3,
+     "single_at8": null,
+     "sets_completed": 3.0,
+     "rir_last_set": 3.0,
+     "video": null,
+     "notes": null,
+     "_tm_cached": 173.25,
+     "_weight_cached": 152.5
+    },
+    {
+     "day": 1,
+     "lift": "Squat",
+     "week": 4,
+     "single_at8": null,
+     "sets_completed": 3.0,
+     "rir_last_set": 3.0,
+     "video": null,
+     "notes": null,
+     "_tm_cached": 181.9125,
+     "_weight_cached": 160
+    },
+    {
+     "day": 1,
+     "lift": "Squat",
+     "week": 5,
+     "single_at8": null,
+     "sets_completed": 3.0,
+     "rir_last_set": 2.0,
+     "video": null,
+     "notes": null,
+     "_tm_cached": 191.008125,
+     "_weight_cached": 167.5
+    },
+    {
+     "day": 1,
+     "lift": "Squat",
+     "week": 7,
+     "single_at8": null,
+     "sets_completed": 3.0,
+     "rir_last_set": 0.0,
+     "video": null,
+     "notes": null,
+     "_tm_cached": 196.7383688,
+     "_weight_cached": 172.5
+    },
+    {
+     "day": 1,
+     "lift": "Squat",
+     "week": 8,
+     "single_at8": null,
+     "sets_completed": 3.0,
+     "rir_last_set": 5.0,
+     "video": null,
+     "notes": null,
+     "_tm_cached": 196.7383688,
+     "_weight_cached": 172.5
+    },
+    {
+     "day": 1,
+     "lift": "Incline Press",
+     "week": 1,
+     "single_at8": null,
+     "sets_completed": 3.0,
+     "rir_last_set": 3.0,
+     "video": null,
+     "notes": null,
+     "_tm_cached": 70,
+     "_weight_cached": 52.5
+    },
+    {
+     "day": 1,
+     "lift": "Incline Press",
+     "week": 2,
+     "single_at8": null,
+     "sets_completed": 3.0,
+     "rir_last_set": null,
+     "video": null,
+     "notes": null,
+     "_tm_cached": 73.5,
+     "_weight_cached": 55
+    },
+    {
+     "day": 1,
+     "lift": "Incline Press",
+     "week": 3,
+     "single_at8": null,
+     "sets_completed": 3.0,
+     "rir_last_set": 1.0,
+     "video": null,
+     "notes": null,
+     "_tm_cached": 73.5,
+     "_weight_cached": 55
+    },
+    {
+     "day": 1,
+     "lift": "Incline Press",
+     "week": 4,
+     "single_at8": null,
+     "sets_completed": 3.0,
+     "rir_last_set": 2.0,
+     "video": null,
+     "notes": null,
+     "_tm_cached": 74.235,
+     "_weight_cached": 55
+    },
+    {
+     "day": 1,
+     "lift": "Incline Press",
+     "week": 5,
+     "single_at8": null,
+     "sets_completed": 3.0,
+     "rir_last_set": 3.0,
+     "video": null,
+     "notes": null,
+     "_tm_cached": 76.46205,
+     "_weight_cached": 57.5
+    },
+    {
+     "day": 1,
+     "lift": "Incline Press",
+     "week": 6,
+     "single_at8": null,
+     "sets_completed": 34.0,
+     "rir_last_set": 8.0,
+     "video": null,
+     "notes": null,
+     "_tm_cached": 80.2851525,
+     "_weight_cached": 60
+    },
+    {
+     "day": 1,
+     "lift": "Incline Press",
+     "week": 7,
+     "single_at8": null,
+     "sets_completed": 3.0,
+     "rir_last_set": 5.0,
+     "video": null,
+     "notes": null,
+     "_tm_cached": 84.29941013,
+     "_weight_cached": 62.5
+    },
+    {
+     "day": 1,
+     "lift": "Incline Press",
+     "week": 8,
+     "single_at8": null,
+     "sets_completed": 4.0,
+     "rir_last_set": 4.0,
+     "video": null,
+     "notes": null,
+     "_tm_cached": 88.51438063,
+     "_weight_cached": 67.5
+    },
+    {
+     "day": 1,
+     "lift": "Barbell rows",
+     "week": 1,
+     "single_at8": null,
+     "sets_completed": 2.0,
+     "rir_last_set": null,
+     "video": null,
+     "notes": null,
+     "_tm_cached": 95,
+     "_weight_cached": 72.5
+    },
+    {
+     "day": 1,
+     "lift": "Barbell rows",
+     "week": 2,
+     "single_at8": null,
+     "sets_completed": 3.0,
+     "rir_last_set": null,
+     "video": null,
+     "notes": null,
+     "_tm_cached": 93.1,
+     "_weight_cached": 70
+    },
+    {
+     "day": 1,
+     "lift": "Barbell rows",
+     "week": 3,
+     "single_at8": null,
+     "sets_completed": 3.0,
+     "rir_last_set": null,
+     "video": null,
+     "notes": null,
+     "_tm_cached": 93.1,
+     "_weight_cached": 70
+    },
+    {
+     "day": 1,
+     "lift": "Barbell rows",
+     "week": 4,
+     "single_at8": null,
+     "sets_completed": 3.0,
+     "rir_last_set": null,
+     "video": null,
+     "notes": null,
+     "_tm_cached": 93.1,
+     "_weight_cached": 70
+    },
+    {
+     "day": 1,
+     "lift": "Barbell rows",
+     "week": 7,
+     "single_at8": null,
+     "sets_completed": 3.0,
+     "rir_last_set": 0.0,
+     "video": null,
+     "notes": null,
+     "_tm_cached": 93.1,
+     "_weight_cached": 70
+    },
+    {
+     "day": 2,
+     "lift": "Bench Press",
+     "week": 1,
+     "single_at8": null,
+     "sets_completed": 3.0,
+     "rir_last_set": 3.0,
+     "video": null,
+     "notes": null,
+     "_tm_cached": 115,
+     "_weight_cached": 100
+    },
+    {
+     "day": 2,
+     "lift": "Bench Press",
+     "week": 2,
+     "single_at8": null,
+     "sets_completed": 3.0,
+     "rir_last_set": 5.0,
+     "video": null,
+     "notes": null,
+     "_tm_cached": 120.75,
+     "_weight_cached": 105
+    },
+    {
+     "day": 2,
+     "lift": "Bench Press",
+     "week": 4,
+     "single_at8": null,
+     "sets_completed": 3.0,
+     "rir_last_set": null,
+     "video": null,
+     "notes": null,
+     "_tm_cached": 126.7875,
+     "_weight_cached": 110
+    },
+    {
+     "day": 2,
+     "lift": "Bench Press",
+     "week": 7,
+     "single_at8": null,
+     "sets_completed": 3.0,
+     "rir_last_set": null,
+     "video": null,
+     "notes": null,
+     "_tm_cached": 126.7875,
+     "_weight_cached": 110
+    },
+    {
+     "day": 2,
+     "lift": "Bench Press",
+     "week": 8,
+     "single_at8": null,
+     "sets_completed": 3.0,
+     "rir_last_set": null,
+     "video": null,
+     "notes": null,
+     "_tm_cached": 126.7875,
+     "_weight_cached": 110
+    },
+    {
+     "day": 2,
+     "lift": "Front Squat",
+     "week": 1,
+     "single_at8": null,
+     "sets_completed": 3.0,
+     "rir_last_set": 3.0,
+     "video": null,
+     "notes": null,
+     "_tm_cached": 120,
+     "_weight_cached": 100
+    },
+    {
+     "day": 2,
+     "lift": "Front Squat",
+     "week": 2,
+     "single_at8": null,
+     "sets_completed": 3.0,
+     "rir_last_set": 1.0,
+     "video": null,
+     "notes": null,
+     "_tm_cached": 126,
+     "_weight_cached": 105
+    },
+    {
+     "day": 2,
+     "lift": "Front Squat",
+     "week": 4,
+     "single_at8": null,
+     "sets_completed": 4.0,
+     "rir_last_set": 1.0,
+     "video": null,
+     "notes": null,
+     "_tm_cached": 127.26,
+     "_weight_cached": 105
+    },
+    {
+     "day": 2,
+     "lift": "Front Squat",
+     "week": 7,
+     "single_at8": null,
+     "sets_completed": 3.0,
+     "rir_last_set": 2.0,
+     "video": null,
+     "notes": null,
+     "_tm_cached": 128.5326,
+     "_weight_cached": 105
+    },
+    {
+     "day": 2,
+     "lift": "Front Squat",
+     "week": 8,
+     "single_at8": null,
+     "sets_completed": 3.0,
+     "rir_last_set": 5.0,
+     "video": null,
+     "notes": null,
+     "_tm_cached": 132.388578,
+     "_weight_cached": 110
+    },
+    {
+     "day": 4,
+     "lift": "Seated OHP",
+     "week": 2,
+     "single_at8": null,
+     "sets_completed": 3.0,
+     "rir_last_set": 1.0,
+     "video": null,
+     "notes": null,
+     "_tm_cached": 100,
+     "_weight_cached": 87.5
+    },
+    {
+     "day": 4,
+     "lift": "Paused Squat",
+     "week": 2,
+     "single_at8": null,
+     "sets_completed": 3.0,
+     "rir_last_set": 3.0,
+     "video": null,
+     "notes": null,
+     "_tm_cached": 100,
+     "_weight_cached": 75
+    }
+   ],
+   "accessories": []
+  },
+  "6x": {
+   "days": [
+    {
+     "day": 1,
+     "lifts": [
+      {
+       "name": "Squat",
+       "tm_row": 4,
+       "work_row": 5
+      },
+      {
+       "name": "Long Pause Bench",
+       "tm_row": 6,
+       "work_row": 7
+      }
+     ],
+     "accessory_rows": [
+      9,
+      10,
+      11
+     ]
+    },
+    {
+     "day": 2,
+     "lifts": [
+      {
+       "name": "Sumo Deadlift",
+       "tm_row": 13,
+       "work_row": 14
+      },
+      {
+       "name": "Pull-ups",
+       "tm_row": 15,
+       "work_row": 16
+      }
+     ],
+     "accessory_rows": [
+      18,
+      19,
+      20
+     ]
+    },
+    {
+     "day": 3,
+     "lifts": [
+      {
+       "name": "Bench Press",
+       "tm_row": 22,
+       "work_row": 23
+      },
+      {
+       "name": "Front Squat",
+       "tm_row": 24,
+       "work_row": 25
+      }
+     ],
+     "accessory_rows": [
+      27,
+      28,
+      29
+     ]
+    },
+    {
+     "day": 4,
+     "lifts": [
+      {
+       "name": "Deadlift",
+       "tm_row": 31,
+       "work_row": 32
+      },
+      {
+       "name": "Incline Press",
+       "tm_row": 33,
+       "work_row": 34
+      },
+      {
+       "name": "DB rows",
+       "tm_row": 35,
+       "work_row": 36
+      }
+     ],
+     "accessory_rows": [
+      38,
+      39,
+      40
+     ]
+    },
+    {
+     "day": 5,
+     "lifts": [
+      {
+       "name": "Paused Squat",
+       "tm_row": 42,
+       "work_row": 43
+      },
+      {
+       "name": "Close Grip Bench",
+       "tm_row": 44,
+       "work_row": 45
+      }
+     ],
+     "accessory_rows": [
+      47,
+      48,
+      49
+     ]
+    },
+    {
+     "day": 6,
+     "lifts": [
+      {
+       "name": "Seated OHP",
+       "tm_row": 51,
+       "work_row": 52
+      },
+      {
+       "name": "Barbell rows",
+       "tm_row": 53,
+       "work_row": 54
+      }
+     ],
+     "accessory_rows": [
+      56,
+      57,
+      58
+     ]
+    }
+   ],
+   "history": [],
+   "accessories": []
+  }
+ }
+}
