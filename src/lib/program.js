@@ -12,11 +12,11 @@ export function programFromLift(lift, settings) {
   };
 }
 
-// logs: all log rows; returns {week: {...}} for one lift in one variant
-export function logsForLift(logs, variant, liftId) {
+// logs: all log rows; returns {week: {...}} for one lift in one variant+cycle
+export function logsForLift(logs, variant, liftId, cycle = 1) {
   const out = {};
   for (const l of logs) {
-    if (l.variant === variant && l.lift_id === liftId) {
+    if (l.variant === variant && l.lift_id === liftId && (l.cycle ?? 1) === cycle) {
       out[l.week] = {
         setsCompleted: nn(l.sets_completed),
         rirLastSet: nn(l.rir_last_set),
@@ -29,9 +29,9 @@ export function logsForLift(logs, variant, liftId) {
   return out;
 }
 
-export function planForLift(lift, logs, variant, settings) {
+export function planForLift(lift, logs, variant, settings, cycle = settings.cycle ?? 1) {
   const program = programFromLift(lift, settings);
-  const logsByWeek = logsForLift(logs, variant, lift.id);
+  const logsByWeek = logsForLift(logs, variant, lift.id, cycle);
   return computeLiftPlan(
     { ...lift, max: Number(lift.max), single_at8_pct: Number(lift.single_at8_pct) },
     logsByWeek,
@@ -68,8 +68,10 @@ function nn(v) {
 // list is logged, or the last save was over 7 days ago, you're on the next week.
 // settings.current_week acts as a floor (covers the initial spreadsheet import).
 export function detectCurrentWeek({ logs, variant, programDays, settings, now = Date.now() }) {
+  const cycle = settings.cycle ?? 1;
   const vlogs = logs.filter(
-    (l) => l.variant === variant && l.sets_completed !== null && l.sets_completed !== undefined && l.updated_at
+    (l) => l.variant === variant && (l.cycle ?? 1) === cycle &&
+      l.sets_completed !== null && l.sets_completed !== undefined && l.updated_at
   );
   const floor = settings.current_week || 1;
   if (!vlogs.length) return Math.min(floor, settings.weeks);
