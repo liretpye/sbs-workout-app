@@ -3,7 +3,7 @@ import { saveSettings, saveLift, resetProgram, wipePastCycles } from '../lib/sto
 import { clearConfig } from '../lib/supabase.js';
 import { planForLift, detectCurrentWeek } from '../lib/program.js';
 
-export default function Setup({ data, setData, onReconnect, onReload }) {
+export default function Setup({ data, setData, user, onReconnect, onReload, onSignOut }) {
   const { settings, lifts, programDays } = data;
 
   return (
@@ -16,8 +16,11 @@ export default function Setup({ data, setData, onReconnect, onReload }) {
       <ResetCard data={data} setData={setData} />
       <WipeCard data={data} setData={setData} />
       <div className="card">
-        <h3>Connection</h3>
-        <p className="muted">Supabase credentials are stored in this browser only.</p>
+        <h3>Account</h3>
+        <p className="muted">
+          Signed in with GitHub as <strong>{user?.user_metadata?.user_name || user?.email}</strong>.
+        </p>
+        <button className="secondary" onClick={onSignOut}>Sign out</button>{' '}
         <button
           className="secondary"
           onClick={() => {

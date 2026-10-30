@@ -12,7 +12,7 @@ export async function loadAll() {
     sb.from('cycles').select('*').order('cycle'),
   ]);
   for (const r of [settings, lifts, programDays, logs, accessories, cycles]) {
-    if (r.error) throw new Error(r.error.message);
+    if (r.error) throw Object.assign(new Error(r.error.message), { code: r.error.code });
   }
   return {
     settings: settings.data,

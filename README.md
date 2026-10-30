@@ -26,7 +26,21 @@ Your setup values (maxes, single @8 percentages, progression table) and your log
 
 Open the app. It asks for the Supabase Project URL and anon key from step 1 — paste them and hit Connect. They're stored in that browser's local storage only, so do this once per device (phone, laptop, etc.). All workout data goes to Supabase, not the browser.
 
-> **Security note:** the anon key plus permissive database policies means anyone who has both your project URL and anon key can read/write your workout data. Don't commit them to the repo or post them anywhere. For a personal training log this is generally an acceptable trade-off; if you ever want it locked down harder, Supabase auth can be added later.
+> **Security note:** until you finish step 4, anyone with the project URL and anon key can read/write your workout data. After step 4 the key is safe to be public; only your GitHub account can access the data.
+
+### 4. Sign in with GitHub (locks the database to you)
+
+The app requires signing in with GitHub, and the database only answers to the owner's GitHub account (`liretpye`, matched by numeric account id in `supabase/migration-003-auth.sql`). Anyone else who signs in sees "no access".
+
+1. **Create a GitHub OAuth app.** On GitHub go to **Settings → Developer settings → OAuth Apps → New OAuth App**.
+   - Application name: `SBS Workout` (anything)
+   - Homepage URL: your app's GitHub Pages URL
+   - Authorization callback URL: `https://<project-ref>.supabase.co/auth/v1/callback` (Supabase shows this exact URL on the GitHub provider page in the next step)
+   - Register it, then **Generate a new client secret**. Keep the Client ID and secret handy.
+2. **Turn on GitHub in Supabase.** In the Supabase dashboard: **Authentication → Sign In / Providers → GitHub** → enable, paste the Client ID and secret, save.
+3. **Allow the redirect back to the app.** **Authentication → URL Configuration**: set **Site URL** to your GitHub Pages URL and add the same URL under **Redirect URLs** (add `http://localhost:5173/` too if you run it locally).
+4. Deploy this version of the app and sign in once to confirm it works.
+5. **Lock it down.** In the SQL Editor, run `supabase/migration-003-auth.sql`. This replaces the open policies with owner-only ones. From then on the public key in the app and workflow can't read or write anything without your GitHub sign-in.
 
 ## Using the app
 

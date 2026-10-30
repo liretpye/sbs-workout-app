@@ -4,7 +4,8 @@ import Connect from './pages/Connect.jsx';
 import Workout from './pages/Workout.jsx';
 import Progress from './pages/Progress.jsx';
 import Setup from './pages/Setup.jsx';
-import { getStoredConfig } from './lib/supabase.js';
+import Login from './pages/Login.jsx';
+import { getStoredConfig, getSession, onAuthChange, signOut } from './lib/supabase.js';
 import { loadAll } from './lib/store.js';
 
 function Clock() {
@@ -26,7 +27,9 @@ function Clock() {
 }
 
 export default function App() {
-  const [phase, setPhase] = useState(getStoredConfig() ? 'loading' : 'connect');
+  // phases: connect -> auth (checking session) -> login | loading -> ready | denied | error
+  const [phase, setPhase] = useState(getStoredConfig() ? 'auth' : 'connect');
+  const [user, setUser] = useState(null);
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
   const [tab, setTab] = useState('workout');
@@ -38,17 +41,47 @@ export default function App() {
       setData(d);
       setPhase('ready');
     } catch (e) {
-      setError(e.message);
-      setPhase('error');
+      // Signed in but the database policies return no rows: not the owner.
+      if (e.code === 'PGRST116') setPhase('denied');
+      else {
+        setError(e.message);
+        setPhase('error');
+      }
     }
   }, []);
+
+  // Resolve the session (including the redirect back from GitHub), then keep in sync.
+  useEffect(() => {
+    if (phase === 'connect') return;
+    let cancelled = false;
+    getSession().then((s) => {
+      if (cancelled) return;
+      setUser(s?.user ?? null);
+      setPhase((p) => (p === 'auth' ? (s ? 'loading' : 'login') : p));
+    });
+    const off = onAuthChange((s) => {
+      setUser(s?.user ?? null);
+      setPhase((p) => (s ? (p === 'login' ? 'loading' : p) : p === 'connect' ? p : 'login'));
+    });
+    return () => {
+      cancelled = true;
+      off();
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [phase === 'connect']);
 
   useEffect(() => {
     if (phase === 'loading') refresh();
   }, [phase, refresh]);
 
   if (phase === 'connect') {
-    return <Connect onConnected={() => setPhase('loading')} />;
+    return <Connect onConnected={() => setPhase('auth')} />;
+  }
+  if (phase === 'auth') {
+    return <div className="center-screen">Checking sign-in…</div>;
+  }
+  if (phase === 'login' || phase === 'denied') {
+    return <Login denied={phase === 'denied'} user={user} onSignedOut={() => setPhase('login')} />;
   }
   if (phase === 'loading') {
     return <div className="center-screen">Loading your program…</div>;
@@ -99,7 +132,8 @@ export default function App() {
       ) : tab === 'progress' ? (
         <Progress data={data} />
       ) : (
-        <Setup data={data} setData={setData} onReconnect={() => setPhase('connect')} onReload={refresh} />
+        <Setup data={data} setData={setData} user={user} onReconnect={() => setPhase('connect')} onReload={refresh}
+          onSignOut={async () => { await signOut(); setData(null); setPhase('login'); }} />
       )}
     </div>
   );
