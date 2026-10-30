@@ -43,3 +43,29 @@ export async function testConnection(url, anonKey) {
   if (error) throw new Error(error.message);
   return true;
 }
+
+// ---------- auth (Sign in with GitHub) ----------
+
+export async function getSession() {
+  const { data } = await getClient().auth.getSession();
+  return data.session;
+}
+
+export function onAuthChange(cb) {
+  const { data } = getClient().auth.onAuthStateChange((_event, session) => cb(session));
+  return () => data.subscription.unsubscribe();
+}
+
+export async function signInWithGitHub() {
+  // Return to exactly this page (works on GitHub Pages subpaths and localhost).
+  const redirectTo = window.location.origin + window.location.pathname;
+  const { error } = await getClient().auth.signInWithOAuth({
+    provider: 'github',
+    options: { redirectTo },
+  });
+  if (error) throw new Error(error.message);
+}
+
+export async function signOut() {
+  await getClient().auth.signOut();
+}
