@@ -3,6 +3,7 @@ import logo from './assets/logo.png';
 import Connect from './pages/Connect.jsx';
 import Workout from './pages/Workout.jsx';
 import Progress from './pages/Progress.jsx';
+import Offday from './pages/Offday.jsx';
 import Setup from './pages/Setup.jsx';
 import Login from './pages/Login.jsx';
 import { getStoredConfig, getSession, onAuthChange, signOut } from './lib/supabase.js';
@@ -118,6 +119,10 @@ export default function App() {
           <span className="nav-icon">🏋️</span>
           Workout
         </button>
+        <button className={tab === 'offday' ? 'active' : ''} onClick={() => setTab('offday')}>
+          <span className="nav-icon">🏠</span>
+          Off-day
+        </button>
         <button className={tab === 'progress' ? 'active' : ''} onClick={() => setTab('progress')}>
           <span className="nav-icon">📈</span>
           Progress
@@ -129,6 +134,8 @@ export default function App() {
       </nav>
       {tab === 'workout' ? (
         <Workout data={data} setData={setData} />
+      ) : tab === 'offday' ? (
+        <Offday data={data} setData={setData} />
       ) : tab === 'progress' ? (
         <Progress data={data} />
       ) : (

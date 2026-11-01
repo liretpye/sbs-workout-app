@@ -1,5 +1,6 @@
 import React, { useMemo, useRef, useState } from 'react';
 import { planForLift, detectCurrentWeek } from '../lib/program.js';
+import { isoDate, addDays, weekStart, prettyDate } from '../lib/offday.js';
 
 // Chart palette — validated (dataviz six checks) against surface #191f26.
 const C = { series: '#3987e5', grid: 'rgba(145,160,173,0.16)', axis: '#91a0ad' };
@@ -152,6 +153,56 @@ export default function Progress({ data }) {
           <VolumeChart rows={weekly} units={u} />
         </div>
       )}
+
+      <OffdaySummary rows={data.offday || []} goal={settings.pushup_goal ?? 100} />
+    </div>
+  );
+}
+
+/* ---------- off-day weekly summary ---------- */
+
+function OffdaySummary({ rows, goal }) {
+  const weeks = useMemo(() => {
+    if (!rows.length) return [];
+    const thisWk = weekStart(isoDate());
+    const firstWk = weekStart(rows.reduce((m, r) => (r.date < m ? r.date : m), rows[0].date));
+    const out = [];
+    for (let w = thisWk; w >= firstWk && out.length < 8; w = addDays(w, -7)) {
+      const end = addDays(w, 6);
+      const inWk = rows.filter((r) => r.date >= w && r.date <= end);
+      const pushDays = inWk.filter((r) => r.kind === 'pushups');
+      out.push({
+        week: w,
+        pushups: pushDays.reduce((n, r) => n + (r.data?.sets ?? 0) * 10, 0),
+        goalDays: pushDays.filter((r) => (r.data?.sets ?? 0) * 10 >= goal).length,
+        thigh: inWk.filter((r) => r.kind === 'adductor' && Object.keys(r.data || {}).length).length,
+        minutes: inWk.filter((r) => r.kind === 'activity').reduce((n, r) => n + (Number(r.data?.minutes) || 0), 0),
+      });
+    }
+    return out;
+  }, [rows, goal]);
+
+  if (!weeks.length) return null;
+  return (
+    <div className="card chart-card">
+      <h3>Off-day</h3>
+      <p className="muted chart-sub">Weekly totals, Monday to Sunday</p>
+      <table className="od-table">
+        <thead>
+          <tr><th>Week of</th><th>Push-ups</th><th>{goal}+ days</th><th>Inner thigh</th><th>Activity</th></tr>
+        </thead>
+        <tbody>
+          {weeks.map((w) => (
+            <tr key={w.week}>
+              <td>{prettyDate(w.week, { month: 'short', day: 'numeric' })}</td>
+              <td>{w.pushups}</td>
+              <td>{w.goalDays}</td>
+              <td>{w.thigh}×</td>
+              <td>{w.minutes} min</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </div>
   );
 }

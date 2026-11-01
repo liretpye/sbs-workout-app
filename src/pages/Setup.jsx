@@ -9,6 +9,7 @@ export default function Setup({ data, setData, user, onReconnect, onReload, onSi
   return (
     <div className="page">
       <ProgramSettings settings={settings} setData={setData} />
+      {!data.offdayMissing && <OffdaySettings settings={settings} setData={setData} />}
       <LiftsTable lifts={lifts} settings={settings} setData={setData} />
       <ProgressionTable lifts={lifts} setData={setData} />
       <TargetTables lifts={lifts} setData={setData} />
@@ -33,6 +34,39 @@ export default function Setup({ data, setData, user, onReconnect, onReload, onSi
         <button className="secondary" onClick={onReload}>
           Reload data
         </button>
+      </div>
+    </div>
+  );
+}
+
+function OffdaySettings({ settings, setData }) {
+  const [start, setStart] = useState(settings.offday_start ?? '');
+  const [goal, setGoal] = useState(settings.pushup_goal ?? 100);
+  const [state, setState] = useState('idle');
+  async function save() {
+    setState('saving');
+    try {
+      const s = await saveSettings({ offday_start: start || null, pushup_goal: Number(goal) || 100 });
+      setData((d) => ({ ...d, settings: s }));
+      setState('saved');
+    } catch {
+      setState('error');
+    }
+  }
+  return (
+    <div className="card">
+      <h3>Off-day</h3>
+      <div className="inputs">
+        <label>Inner-thigh week 1 starts
+          <input type="date" value={start} onChange={(e) => setStart(e.target.value)} />
+        </label>
+        <label>Daily push-up goal
+          <input type="number" inputMode="numeric" step="10" min="10" value={goal} onChange={(e) => setGoal(e.target.value)} />
+        </label>
+      </div>
+      <div className="card-foot">
+        <button onClick={save} disabled={state === 'saving'}>Save</button>
+        <span className={`save-state ${state}`}>{state === 'saved' ? 'saved ✓' : state === 'error' ? "couldn't save" : ''}</span>
       </div>
     </div>
   );
