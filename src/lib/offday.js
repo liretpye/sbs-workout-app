@@ -2,9 +2,35 @@
 
 // Inner-thigh routine. Weeks 1-2: 1 set, weeks 3-4: 2 sets, week 5+: 3 sets.
 export const ADDUCTOR = [
-  { name: 'Butterfly', targets: ['8-10', '10', '10+'] },
-  { name: 'Kozak', targets: ['4-5', '5', '5+'] },
-  { name: 'Straddle GM', targets: ['6-10', '10', '10+'] },
+  {
+    name: 'Butterfly',
+    targets: ['8-10', '10', '10+'],
+    how: [
+      'Sit tall with the soles of your feet together and knees out to the sides.',
+      'Press down on your knees with your hands for resistance, then squeeze your knees up against your hands.',
+      'Lower slowly and let your knees drop as far as they comfortably go. That is one rep.',
+    ],
+  },
+  {
+    name: 'Kozak',
+    aka: 'Cossack squat',
+    targets: ['4-5', '5', '5+'],
+    how: [
+      'Stand with your feet wide, toes turned out slightly.',
+      'Shift your weight to one side and squat down on that leg. Keep the other leg straight with its toes pointing up.',
+      'Keep your chest up and your heel down, go as low as you can control, then push back up. Do the reps on each side.',
+    ],
+  },
+  {
+    name: 'Straddle GM',
+    aka: 'Straddle good morning',
+    targets: ['6-10', '10', '10+'],
+    how: [
+      'Stand in a wide straddle with your toes forward and your knees soft. Hands on your hips or behind your head.',
+      'Keep your back flat and hinge forward from your hips, pushing your hips back until you feel a stretch in your inner thighs and hamstrings.',
+      'Squeeze your glutes and inner thighs to stand back up.',
+    ],
+  },
 ];
 
 export const DEFAULT_ACTIVITIES = ['Snowboarding', 'Roller skating', 'Biking'];

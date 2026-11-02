@@ -571,15 +571,22 @@ table.targets td input { width: 58px; }
 .pu-seg.extra { border-style: dashed; }
 .pu-seg.extra.on { background: var(--green); border-color: var(--green); }
 
+.ad-item { border-top: 1px solid var(--border); }
 .ad-row {
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 12px;
   padding: 10px 0;
-  border-top: 1px solid var(--border);
 }
-.ad-name { display: flex; flex-direction: column; gap: 2px; font-weight: 600; }
+.ad-name {
+  display: flex; flex-direction: column; gap: 2px; align-items: flex-start;
+  font-weight: 600; background: none; border: none; padding: 0; color: var(--text); text-align: left;
+}
+.ad-info { color: var(--accent); font-size: 0.85rem; font-weight: 500; margin-left: 2px; }
+.ad-how { padding: 0 0 12px; font-size: 0.88rem; line-height: 1.45; }
+.ad-how ol { margin: 6px 0 0; padding-left: 20px; }
+.ad-how li + li { margin-top: 4px; }
 .ad-name .small { font-weight: 400; }
 .ad-sets { display: flex; gap: 6px; }
 .ad-input { width: 56px; text-align: center; font-weight: 600; }
