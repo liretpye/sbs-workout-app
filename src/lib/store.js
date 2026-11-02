@@ -14,7 +14,10 @@ export async function loadAll() {
   for (const r of [settings, lifts, programDays, logs, accessories, cycles]) {
     if (r.error) throw Object.assign(new Error(r.error.message), { code: r.error.code });
   }
+  const offday = await loadOffday();
   return {
+    offday: offday.rows,
+    offdayMissing: offday.missing,
     settings: settings.data,
     lifts: lifts.data,
     programDays: programDays.data,
@@ -94,4 +97,32 @@ export async function wipePastCycles(currentCycle) {
   if (r.error) throw new Error(r.error.message);
   r = await sb.from('cycles').delete().lt('cycle', currentCycle);
   if (r.error) throw new Error(r.error.message);
+}
+
+// ---------- off-day workouts ----------
+
+// Off-day logs live in their own table; tolerate it not existing yet
+// (migration-004 not run) so the rest of the app keeps working.
+export async function loadOffday() {
+  const sb = getClient();
+  const { data, error } = await sb.from('offday_logs').select('*').order('date');
+  if (error) return { rows: [], missing: true };
+  return { rows: data, missing: false };
+}
+
+export async function saveOffday(row) {
+  const sb = getClient();
+  const payload = { date: row.date, kind: row.kind, data: row.data, updated_at: new Date().toISOString() };
+  const q = row.id
+    ? sb.from('offday_logs').update(payload).eq('id', row.id)
+    : sb.from('offday_logs').insert(payload);
+  const { data, error } = await q.select().single();
+  if (error) throw new Error(error.message);
+  return data;
+}
+
+export async function deleteOffday(id) {
+  const sb = getClient();
+  const { error } = await sb.from('offday_logs').delete().eq('id', id);
+  if (error) throw new Error(error.message);
 }

@@ -48,6 +48,12 @@ The app requires signing in with GitHub, and the database only answers to the ow
 
 **Additional workouts** — below the main lifts, log anything extra (exercise, weight, reps, sets, RIR, notes). Entries from previous weeks show up as one-tap "Do again" suggestions, mirroring the sheet's accessory carry-forward.
 
+**Off-day tab**: for home and on-the-go days, logged by calendar date.
+- *Push-ups*: tap +10 after each set of ten; shows the day's total against your goal (100 by default) and the week's total.
+- *Inner thigh*: Butterfly, Kozak and Straddle GM. Weeks 1-2 are 1 set, weeks 3-4 are 2 sets, week 5+ is 3 sets, counted from the start date in Setup. Rep targets are 8-10/10/10+, 4-5/5/5+ and 6-10/10/10+; each exercise shows your last session's best set.
+- *Activities*: snowboarding, roller skating, biking, or anything you type (it's remembered), with minutes and notes.
+- Weekly totals appear at the bottom of the Progress tab. Requires `supabase/migration-004-offday.sql`.
+
 **Setup tab** — everything from the sheet's Quick Setup: days per week (3x–6x layouts, all included), current week, rounding, units; per-lift maxes, single @8 %, set goal, and intensity; the weekly TM adjustment table; and rep / RIR targets by intensity.
 
 ## Progression rules (as in the sheet)
