@@ -136,6 +136,7 @@ function AdductorCard({ date, rows, row, settings, setData, put }) {
   const week = adductorWeek(start, date);
   const [reps, setReps] = useState(row?.data ?? {});
   const [saveState, setSaveState] = useState('idle');
+  const [openHow, setOpenHow] = useState(null);
   const idRef = useRef(row?.id ?? null);
   const timer = useRef(null);
   const latest = useRef(reps);
@@ -210,13 +211,15 @@ function AdductorCard({ date, rows, row, settings, setData, put }) {
         const last = prev?.data?.[ex.name];
         const lastBest = last && last.length ? Math.max(...last.filter((v) => v != null)) : null;
         return (
-          <div key={ex.name} className="ad-row">
-            <div className="ad-name">
-              <span>{ex.name}</span>
+          <div key={ex.name} className="ad-item">
+          <div className="ad-row">
+            <button className="ad-name" onClick={() => setOpenHow(openHow === ex.name ? null : ex.name)}
+              aria-expanded={openHow === ex.name}>
+              <span>{ex.name} <span className="ad-info">{openHow === ex.name ? '▾' : 'ⓘ'}</span></span>
               <span className="muted small">
                 {ex.targets[idx]} reps{lastBest != null && isFinite(lastBest) ? ` · last ${lastBest}` : ''}
               </span>
-            </div>
+            </button>
             <div className="ad-sets">
               {Array.from({ length: sets }, (_, i) => (
                 <input key={i} type="number" inputMode="numeric" min="0" className="ad-input"
@@ -226,6 +229,13 @@ function AdductorCard({ date, rows, row, settings, setData, put }) {
                   onChange={(e) => upd(ex.name, i, e.target.value)} />
               ))}
             </div>
+          </div>
+          {openHow === ex.name && (
+            <div className="ad-how">
+              {ex.aka && <div className="muted small">Also called {ex.aka}</div>}
+              <ol>{ex.how.map((h, i) => <li key={i}>{h}</li>)}</ol>
+            </div>
+          )}
           </div>
         );
       })}
